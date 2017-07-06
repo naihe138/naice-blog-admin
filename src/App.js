@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  HashRouter,
   Route,
   Link
 } from 'react-router-dom'
-
+import createHistory from 'history/createBrowserHistory'
+import asyncComponent from './AsyncComponent'
 // 同步引入
 import Longin from './components/longin/login'
 import PostList from './components/postList/postList'
-import PostDetail from './components/postDetail/postDetail'
+import Home from './components/home/home'
+// import PostDetail from './components/postDetail/postDetail'
 
+const AsyncHome = asyncComponent(() => import('./components/postDetail/postDetail'));
+const history = createHistory()
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router history = {history}>
         <div className="App">
-          <ul>
-              <li><Link to="/">Login</Link></li>
-              <li><Link to="/list">PostList</Link></li>
-              <li><Link to="/detail">PostDetail</Link></li>
-            </ul>
-            <hr/>
             <Route exact path="/" component={Longin}/>
-            <Route path="/list" component={PostList}/>
-            <Route path="/detail" component={PostDetail}/>
+            <Route path="/home" component={Home}/>
         </div>
       </Router>
-      
+
     );
   }
 }

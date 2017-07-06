@@ -1,5 +1,5 @@
 import React from 'react'
-import Editor from './editor.js'
+import Editor from './editor1.js'
 
 import '../../assets/styles/bootstrap.min.css'
 console.log(Editor)

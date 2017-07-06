@@ -1,8 +1,11 @@
+/**
+ * @file
+ * @author 何文林
+ * @date 2017/7/5
+ */
 import React from 'react'
 import marked from 'marked'
 import cNames from 'classnames'
-
-import './editor.less'
 
 class MdEditor extends React.Component{
   constructor(props) {
@@ -164,3 +167,4 @@ class MdEditor extends React.Component{
 }
 
 export default MdEditor
+
