@@ -22,6 +22,7 @@ class MdEditor extends React.Component{
     // cache dom node
     this.textControl = this.refs.editor
     this.previewControl = this.refs.preview
+    this.textControl.value = this.props.content
   }
   componentWillUnmount () {
     this.textControl = null
@@ -108,9 +109,9 @@ class MdEditor extends React.Component{
       _isDirty: true
     })
     if (this._ltr) clearTimeout(this._ltr)
-
     this._ltr = setTimeout(() => {
       this.setState({ result: marked(this.textControl.value) }) // change state
+      this.props.editorChange(this.textControl.value, this.state.result)
     }, 300)
   }
   _changeMode (mode) {

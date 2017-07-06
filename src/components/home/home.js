@@ -10,7 +10,10 @@ import {
   Link
 } from 'react-router-dom'
 import {Layout, Menu, Icon} from 'antd';
+
 import PostList from '../postList/postList'
+import Editor from '../markdown/index'
+
 import './home.css'
 import img from '../../assets/imgs/averter.jpg'
 
@@ -66,6 +69,7 @@ export default class SiderDemo extends React.Component {
                 minHeight: 360
               }}>
                 <Route exact path={`${this.props.match.url}/list`} component={PostList}/>
+                <Route exact path={`${this.props.match.url}/add`} component={Editor}/>
               </div>
             </Content>
             <Footer style={{textAlign: 'center'}}>

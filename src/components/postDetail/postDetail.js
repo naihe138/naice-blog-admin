@@ -8,9 +8,8 @@ class PostDetail extends Component{
 	render() {
 		return (
 			<div>
-				<h1>文章列详情面</h1>
+				<Markdown />
 				<Button type="primary">Button</Button>
-
 			</div>
 			)
 	}

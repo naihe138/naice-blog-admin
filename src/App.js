@@ -10,9 +10,9 @@ import asyncComponent from './AsyncComponent'
 import Longin from './components/longin/login'
 import PostList from './components/postList/postList'
 import Home from './components/home/home'
-// import PostDetail from './components/postDetail/postDetail'
+import PostDetail from './components/postDetail/postDetail'
 
-const AsyncHome = asyncComponent(() => import('./components/postDetail/postDetail'));
+// const AsyncHome = asyncComponent(() => import('./components/postDetail/postDetail'));
 const history = createHistory()
 class App extends Component {
   render() {

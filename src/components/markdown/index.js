@@ -1,9 +1,37 @@
 import React from 'react'
+import { Button } from 'antd';
 import Editor from './editor1.js'
-
 import '../../assets/styles/bootstrap.min.css'
-console.log(Editor)
+import './editor.less'
 class Markdown extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={
+      testStr: `123**加粗文字**
+_斜体文字_
+
+> 引用123
+
+123
+1. 有序列表项0
+2. 有序列表项1
+
+\`\`\`
+  asdasd
+\`\`\`
+`
+    }
+  }
+  _handleClick () {
+    alert('这个是自定义按钮')
+  }
+  _subEditor() {
+    console.log(123)
+  }
+  _editorChange(oldStr, newStr) {
+    console.log(oldStr)
+    console.log(newStr)
+  }
   render () {
     return (
       <div id="editor" className="container">
@@ -15,21 +43,16 @@ class Markdown extends React.Component{
           <div className="textbox tag-input">
             <input type="text" placeholder="标签，如JavaScript"/>
           </div>
-          <Editor>
+          <Editor content={this.state.testStr} editorChange={this._editorChange}>
             <option title="自定义按钮" onClick={this._handleClick}><i className="fa fa-bomb"></i></option>
           </Editor>
-          <div>
-            <button className="btn primary">提交</button>
-            <span className="help-text">这是一条提示信息</span>
+          <div className="subEditor">
+            <Button type="primary" size={'large'} onClick={this._subEditor.bind(this)}>提交</Button>
+            <span className="help-text">提交文章</span>
           </div>
         </form>
       </div>
     )
-  }
-  _handleClick () {
-    /* eslint-disable no-alert */
-    alert('这个是自定义按钮')
-    /* eslint-enable no-alert */
   }
 }
 
