@@ -5,7 +5,12 @@ const columns = [{
   dataIndex: 'title',
   key: 'title',
   width: '80%',
-  render: text => <a href="#">{text}</a>,
+  render: (text, record, index) => {
+    console.log(record)
+    return (
+      <a href={`http:baidu.com?id=${record.key}`}>{text}</a>
+    )
+  },
 },
   {
     title: '操作',
@@ -15,16 +20,16 @@ const columns = [{
       <span>
         <a href="#">编辑</a>
         <span className="ant-divider"/>
-        <a href="#" className="ant-dropdown-link">
-          删除
-        </a>
+        <a href="#" className="ant-dropdown-link">删除</a>
+        <span className="ant-divider"/>
+        <a href="#">评论</a>
       </span>
     )
   }];
 const data = [
   {
     key: '1',
-    title: 'John Brown',
+    title: 'John Brown'
   }, {
     key: '2',
     title: 'Jim Green',

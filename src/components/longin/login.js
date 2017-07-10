@@ -1,7 +1,11 @@
 // 登录页面
 import React, {Component} from 'react'
 import {Form, Icon, Input, Button, Checkbox} from 'antd';
+import { connect } from 'react-redux';
+import store from '../../redux/store.js';
+import {toLogin} from '../../action/user.js';
 import './login.less'
+import logo from '../../assets/imgs/averter.jpg'
 const FormItem = Form.Item;
 class Login extends Component {
   constructor (props) {
@@ -12,19 +16,28 @@ class Login extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        store.dispatch(toLogin({
+          username: values.username,
+          password: values.password
+        }, data => {
+          if (data.token) {
+            this.props.history.push('/home')
+          } else {
+            alert(data.message)
+          }
+        }));
       }
     });
   }
-
   render () {
     const {getFieldDecorator} = this.props.form;
     return (
       <section className="loginBox">
         <div id="components-form-demo-normal-login">
+          <img className="logo" src={logo}/>
           <Form onSubmit={this.handleSubmit} className="login-form">
             <FormItem>
-              {getFieldDecorator('用户名', {
+              {getFieldDecorator('username', {
                 rules: [{
                   required: true,
                   message: '请输入用户名'
@@ -34,7 +47,7 @@ class Login extends Component {
               )}
             </FormItem>
             <FormItem>
-              {getFieldDecorator('密码', {
+              {getFieldDecorator('password', {
                 rules: [{
                   required: true,
                   message: '请输入密码!'
@@ -62,4 +75,13 @@ class Login extends Component {
     )
   }
 }
-export default Form.create()(Login);
+
+const mapStateToProps = function(store) {
+  return {
+    user: store.user
+  };
+};
+
+const formLogin = Form.create()(Login)
+
+export default connect(mapStateToProps)(formLogin);

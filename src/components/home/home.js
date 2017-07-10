@@ -9,19 +9,21 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import { connect } from 'react-redux';
+import store from '../../redux/store.js';
 import {Layout, Menu, Icon} from 'antd';
 
 import PostList from '../postList/postList'
-import Editor from '../markdown/index'
+import addEditor from '../addEditor/index'
 
 import './home.css'
 import img from '../../assets/imgs/averter.jpg'
 
 const {Header, Content, Footer, Sider} = Layout;
-export default class SiderDemo extends React.Component {
+class SiderDemo extends React.Component {
   constructor (props) {
     super(props)
-    console.log(props)
+    console.log(props.user)
   }
   state = {
     collapsed: false,
@@ -31,6 +33,17 @@ export default class SiderDemo extends React.Component {
       collapsed: !this.state.collapsed,
     });
   }
+  _goPage(e) {
+    // this.props.history.push(str)
+    let str = ''
+    if (e.key == 1) {
+      str = '/home'
+    }
+    if (e.key == 2) {
+      str = '/home/add'
+    }
+    this.props.history.push(str)
+  }
   render () {
     return (
       <section className="home">
@@ -39,13 +52,13 @@ export default class SiderDemo extends React.Component {
             breakpoint="lg"
             collapsedWidth="0"
             onCollapse={(collapsed, type) => {
-              console.log(collapsed, type);
+              // console.log(collapsed, type);
             }}
           >
             <div className="logo">
               <img src={img} />
             </div>
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} onClick={this._goPage.bind(this)}>
               <Menu.Item key="1">
                 <Icon type="bars"/>
                 <span className="nav-text">文章列表</span>
@@ -68,8 +81,8 @@ export default class SiderDemo extends React.Component {
                 background: '#fff',
                 minHeight: 360
               }}>
-                <Route exact path={`${this.props.match.url}/list`} component={PostList}/>
-                <Route exact path={`${this.props.match.url}/add`} component={Editor}/>
+                <Route exact path='/home' component={PostList}/>
+                <Route path='/home/add' component={addEditor}/>
               </div>
             </Content>
             <Footer style={{textAlign: 'center'}}>
@@ -81,3 +94,10 @@ export default class SiderDemo extends React.Component {
     );
   }
 }
+
+const mapStateToProps = function(store) {
+  return {
+    user: store.user
+  };
+};
+export default connect(mapStateToProps)(SiderDemo);

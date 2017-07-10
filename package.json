@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "antd": "^2.11.2",
+    "axios": "^0.16.2",
     "bundle-loader": "^0.5.5",
     "classname": "^0.0.0",
     "history": "^4.6.3",
     "marked": "^0.3.6",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
@@ -46,6 +48,9 @@
     "promise": "7.1.1",
     "react-dev-utils": "^3.0.0",
     "react-error-overlay": "^1.0.7",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.1",
+    "redux-thunk": "^2.2.0",
     "style-loader": "0.17.0",
     "sw-precache-webpack-plugin": "0.9.1",
     "url-loader": "0.5.8",

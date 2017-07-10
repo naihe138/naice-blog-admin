@@ -7,19 +7,7 @@ class Markdown extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      testStr: `123**加粗文字**
-_斜体文字_
-
-> 引用123
-
-123
-1. 有序列表项0
-2. 有序列表项1
-
-\`\`\`
-  asdasd
-\`\`\`
-`
+      testStr: ``
     }
   }
   _handleClick () {
@@ -42,6 +30,9 @@ _斜体文字_
           </div>
           <div className="textbox tag-input">
             <input type="text" placeholder="标签，如JavaScript"/>
+          </div>
+          <div className="textbox tag-input">
+            <textarea type="text" rows={4} placeholder="文章描述"/>
           </div>
           <Editor content={this.state.testStr} editorChange={this._editorChange}>
             <option title="自定义按钮" onClick={this._handleClick}><i className="fa fa-bomb"></i></option>

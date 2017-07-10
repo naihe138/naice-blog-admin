@@ -14,8 +14,8 @@
     height: 100%;
 }
 .home .ant-layout-has-sider .logo img{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50px;
     display: block;
     margin: 50px auto;
@@ -45,4 +45,8 @@
 
 #components-layout-demo-custom-trigger .ant-layout-sider-collapsed .nav-text {
     display: none;
+}
+
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td{
+    text-align: center!important;
 }
