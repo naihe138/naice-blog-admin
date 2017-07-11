@@ -26,7 +26,6 @@ class Markdown extends React.Component{
     alert('这个是自定义按钮')
   }
   _handleChange(str, event) {
-    clearInterval(this.state.timer)
     this.setState({
       [str]: event.target.value
     })

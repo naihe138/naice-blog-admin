@@ -11,11 +11,21 @@ class MdEditor extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
+      onoff: false,
       panelClass: 'md-panel',
       mode: 'split',
       _isDirty:true,
       isFullScreen: false,
       result: marked(props.content || '')
+    }
+  }
+  componentDidUpdate(){
+    if (!this.state.onoff) {
+      this.setState({
+        onoff: true,
+        result: marked(this.props.content || '')
+      })
+      this.textControl.value = this.props.content
     }
   }
   componentDidMount () {

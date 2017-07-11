@@ -11,9 +11,10 @@ export default {
       url,
       data,
       timeout: 1000,
+      withCredentials: true,
       headers: {
         'X-Requested-With': 'XMLHttpRequest',
-        'Content-Type': 'application/json; charset=UTF-8'
+        'Content-Type': 'application/json; charset=UTF-8',
       }
     }).then(data => data.data).catch(err => err)
   },
@@ -21,8 +22,9 @@ export default {
     return axios({
       method: 'get',
       url,
-      params,
+      params: params || {},
       timeout: 1000,
+      withCredentials: true,
       headers: {
         'X-Requested-With': 'XMLHttpRequest'
       }
