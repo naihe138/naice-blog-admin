@@ -14,7 +14,8 @@ import store from '../../redux/store.js';
 import {Layout, Menu, Icon} from 'antd';
 
 import PostList from '../postList/postList'
-import addEditor from '../addEditor/index'
+import addArticle from '../article/add'
+import editeArtcle from '../article/edite'
 
 import './home.css'
 import img from '../../assets/imgs/averter.jpg'
@@ -82,7 +83,8 @@ class SiderDemo extends React.Component {
                 minHeight: 360
               }}>
                 <Route exact path='/home' component={PostList}/>
-                <Route path='/home/add' component={addEditor}/>
+                <Route path='/home/add' component={addArticle}/>
+                <Route path='/home/editor/:id' component={editeArtcle}/>
               </div>
             </Content>
             <Footer style={{textAlign: 'center'}}>

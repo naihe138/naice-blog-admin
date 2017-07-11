@@ -105,6 +105,7 @@ class MdEditor extends React.Component{
   }
   // event handlers
   _onChange (e) {
+    const self = this;
     this.setState({
       _isDirty: true
     })

@@ -7,5 +7,7 @@
 const baseURL = 'http://127.0.0.1:8902/api'
 export default {
   // 登录
-  login: baseURL + '/user/login'
+  login: baseURL + '/user/login',
+  // 添加文章
+  add: baseURL + '/article/add'
 }

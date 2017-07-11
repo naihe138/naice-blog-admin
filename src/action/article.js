@@ -8,13 +8,9 @@ import axios from '../assets/js/axios'
 import requestURL from '../assets/js/requestUrl'
 export function addArticle (prams, success) {
   return dispatch => {
-    axios.post(requestURL.login, prams)
+    axios.post(requestURL.add, prams)
          .then((data) => {
-           dispatch({
-             type: types.LOGIN,
-             user: data
-           });
-           success && success(data)
+           console.log(data)
          })
          .catch(err => {
            alert('登录服务器出错');
