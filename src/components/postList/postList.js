@@ -9,7 +9,8 @@ class PostList extends Component {
     this.state = {
       loading: false,
       page: 0,
-      data: []
+      data: [],
+      pagination: {}
     }
     this.columns = [
       {
@@ -45,12 +46,32 @@ class PostList extends Component {
   }
 
   handleTableChange (e) {
-    console.log(e)
+    const self = this
+    this.setState({
+        page: e.current - 1
+    });
+    setTimeout(()=>{
+      console.log(self.state.page)
+      self._getList()
+    })
+    // console.log(this.state.page)
+    // this._getList()
   }
   _getList() {
+    const self = this
     let page = this.state.page
+    console.log(page)
+    self.setState({
+        loading: true
+    });
     store.dispatch(getArticle({page}, (data)=> {
       console.log(data)
+      const pagination = { ...self.state.pagination }
+      pagination.total = data.count;
+      self.setState({
+        loading: false,
+        pagination,
+      });
     }))
   }
   componentDidUpdate() {
@@ -66,8 +87,8 @@ class PostList extends Component {
         <Table loading={this.state.loading}
                columns={columns}
                dataSource={this.props.article.aticles || []}
-               pagination={{pageSize: 10}}
-               onChange={this.handleTableChange}/>
+               pagination={this.state.pagination}
+               onChange={this.handleTableChange.bind(this)}/>
       </section>
     )
   }
