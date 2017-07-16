@@ -4,7 +4,7 @@
  * @date 2017/7/7
  */
 
-const baseURL = 'http://127.0.0.1:8902/api'
+const baseURL = 'http://127.0.0.1:8902/api/backstage'
 export default {
   // 登录
   login: baseURL + '/user/login',

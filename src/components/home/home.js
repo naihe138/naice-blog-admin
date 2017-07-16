@@ -36,7 +36,7 @@ class SiderDemo extends React.Component {
   }
   _goPage(e) {
     // this.props.history.push(str)
-    let str = ''
+    let str = '/home'
     if (e.key == 1) {
       str = '/home'
     }
@@ -70,7 +70,11 @@ class SiderDemo extends React.Component {
               </Menu.Item>
               <Menu.Item key="3">
                 <Icon type="upload"/>
-                <span className="nav-text">备用</span>
+                <span className="nav-text">标签管理</span>
+              </Menu.Item>
+              <Menu.Item key="4">
+                <Icon type="upload"/>
+                <span className="nav-text">评论管理</span>
               </Menu.Item>
             </Menu>
           </Sider>
