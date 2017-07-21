@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Table, Icon} from 'antd';
 import { connect } from 'react-redux';
 import store from '../../redux/store.js';
-import {getArticle} from '../../action/article'
+import {getArticle, removeArticle} from '../../action/article'
 class PostList extends Component {
   constructor (props) {
     super(props)
@@ -32,13 +32,26 @@ class PostList extends Component {
           <span>
             <a onClick={this.goDetail.bind(this, record._id)}>编辑</a>
             <span className="ant-divider"/>
-            <a href="#" className="ant-dropdown-link">删除</a>
+            <a href="#" className="ant-dropdown-link" onClick={this._remove.bind(this, record._id)}>删除</a>
             <span className="ant-divider"/>
             <a href="#">评论</a>
           </span>
         )
       }
     ]
+  }
+
+  _remove (id) {
+    const self = this
+    self.setState({
+      loading: true
+    });
+    store.dispatch(removeArticle({id}, (data)=> {
+      self.setState({
+        loading: false
+      });
+      self._getList()
+    }))
   }
 
   goDetail (id) {
@@ -60,7 +73,6 @@ class PostList extends Component {
   _getList() {
     const self = this
     let page = this.state.page
-    console.log(page)
     self.setState({
         loading: true
     });

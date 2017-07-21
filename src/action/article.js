@@ -11,14 +11,27 @@ export function addArticle (prams, success) {
   return dispatch => {
     axios.post(requestURL.add, prams)
          .then((data) => {
-           console.log(data)
            success && success(data)
          })
          .catch(err => {
-           alert('前端接口--服务器出错');
+           console.log('前端接口--服务器出错');
          })
   };
 }
+
+export function removeArticle (prams, success) {
+  console.log(prams)
+  return dispatch => {
+    axios.post(requestURL.remove, prams)
+         .then((data) => {
+           success && success(data)
+         })
+         .catch(err => {
+           console.log('前端接口--服务器出错');
+         })
+  };
+}
+
 // 获取文章列表
 export function getArticle(prams, success) {
   return dispatch => {

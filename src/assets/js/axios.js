@@ -16,7 +16,9 @@ export default {
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/json; charset=UTF-8',
       }
-    }).then(data => data.data).catch(err => err)
+    }).then(data => data.data).catch(err =>
+      console.log(err)
+    )
   },
   get(url, params) {
     return axios({

@@ -39,8 +39,9 @@ class Markdown extends React.Component{
       contentStr: contentStr
     }
     store.dispatch(editArticleById(prams, (data)=>{
-      message.success('修改成功');
-      self._refresh(id)
+      message.success('修改成功', 1.5, () => {
+        self.props.history.push('/home')
+      })
     }))
   }
   _handleChange(str, event) {
