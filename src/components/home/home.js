@@ -69,11 +69,19 @@ class SiderDemo extends React.Component {
                 <span className="nav-text">添加文章</span>
               </Menu.Item>
               <Menu.Item key="3">
-                <Icon type="upload"/>
-                <span className="nav-text">标签管理</span>
+                <Icon type="code" />
+                <span className="nav-text">项目列表</span>
               </Menu.Item>
               <Menu.Item key="4">
-                <Icon type="upload"/>
+                <Icon type="plus-square-o" />
+                <span className="nav-text">新建项目</span>
+              </Menu.Item>
+              <Menu.Item key="5">
+                <Icon type="tags" />
+                <span className="nav-text">标签管理</span>
+              </Menu.Item>
+              <Menu.Item key="6">
+                <Icon type="solution" />
                 <span className="nav-text">评论管理</span>
               </Menu.Item>
             </Menu>
