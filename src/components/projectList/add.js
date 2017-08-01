@@ -9,6 +9,8 @@ import { connect } from 'react-redux';
 import store from '../../redux/store.js';
 import { getProjectById, editProjectById, addProject } from '../../action/project'
 import './project.css'
+// const uploadURL = 'http://127.0.0.1:3030/api/backstage/upload'
+const uploadURL = 'http://blog.naice.me/api/backstage/upload'
 class AddProject extends Component {
   constructor(props) {
     super(props)
@@ -32,13 +34,15 @@ class AddProject extends Component {
   }
 
   handleChange = ({ fileList }) => {
+    console.log(fileList)
     if (fileList[0] && fileList[0].response && fileList[0].response.imgUrl) {
-      this.state.uploadfinishUrl = fileList[0].response.imgUrl
+      this.setState({
+        uploadfinishUrl: fileList[0].response.imgUrl
+      })
     }
     this.setState({ fileList })
   }
   _handleIputChange (str, e) {
-    console.log(str)
     this.setState({
       [str]: e.target.value
     })
@@ -133,7 +137,7 @@ class AddProject extends Component {
         <p>上传图片：</p>
         <div className="clearfix">
           <Upload
-            action="http://localhost:3030/api/backstage/upload"
+            action={uploadURL}
             listType="picture-card"
             fileList={fileList}
             name="file"

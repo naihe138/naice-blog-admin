@@ -191,7 +191,7 @@ module.exports = {
                   options: {
                     importLoaders: 1,
                     minimize: true,
-                    sourceMap: true,
+                    sourceMap: false,
                   },
                 },
                 {
@@ -296,7 +296,7 @@ module.exports = {
       output: {
         comments: false,
       },
-      sourceMap: true,
+      sourceMap: false,
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
