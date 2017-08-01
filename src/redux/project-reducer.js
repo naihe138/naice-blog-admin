@@ -1,11 +1,11 @@
 import * as types from '../action/action-type';
 
-const articleReducer = function (state = {}, action) {
+const projectReducer = function (state = {}, action) {
   switch (action.type) {
-    case types.GETARTICLE:
+    case types.GETPROJECT:
       return Object.assign({}, state, action.data);
     default: return state
   }
 }
 
-export default articleReducer;
+export default projectReducer;

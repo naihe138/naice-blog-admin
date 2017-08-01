@@ -7,7 +7,7 @@ import React, {Component} from 'react'
 import {Input, Upload, Icon, Modal, Button, message} from 'antd';
 import { connect } from 'react-redux';
 import store from '../../redux/store.js';
-import {getArticle, removeArticle} from '../../action/article'
+import { getProjectById, editProjectById, addProject } from '../../action/project'
 import './project.css'
 class AddProject extends Component {
   constructor(props) {
@@ -25,7 +25,6 @@ class AddProject extends Component {
   handleCancel = () => this.setState({ previewVisible: false })
 
   handlePreview = (file) => {
-    console.log(file)
     this.setState({
       previewImage: file.url || file.thumbUrl,
       previewVisible: true,
@@ -33,19 +32,79 @@ class AddProject extends Component {
   }
 
   handleChange = ({ fileList }) => {
-    if (fileList[0].response && fileList[0].response.imgUrl) {
+    if (fileList[0] && fileList[0].response && fileList[0].response.imgUrl) {
       this.state.uploadfinishUrl = fileList[0].response.imgUrl
     }
     this.setState({ fileList })
   }
   _handleIputChange (str, e) {
-    this.state[str] = e.target.value
+    console.log(str)
+    this.setState({
+      [str]: e.target.value
+    })
   }
   _subBtn() {
-    if (this.state.title && this.state.describe && this.state.href) {
-      console.log(123)
+    const _this = this;
+    if (_this.state.title && _this.state.describe && _this.state.href && _this.state.uploadfinishUrl) {
+      if (/pedit/.test(_this.props.match.url)){
+        const prams = {
+          id: _this.props.match.params.id,
+          title: _this.state.title,
+          describe: _this.state.describe,
+          hrefStr: _this.state.href,
+          imageUrl: _this.state.uploadfinishUrl
+        }
+        store.dispatch(editProjectById(prams, (data)=> {
+          _this.props.history.push('/home/project')
+        }))
+      } else {
+        const prams = {
+          title: _this.state.title,
+          describe: _this.state.describe,
+          hrefStr: _this.state.href,
+          imageUrl: _this.state.uploadfinishUrl
+        }
+        store.dispatch(addProject(prams, (data)=> {
+          _this.props.history.push('/home/project')
+        }))
+      }
     } else {
       message.info('所有选线不能为空');
+    }
+  }
+  _setEdit(obj) {
+    let arr = [{
+      uid: -1,
+      name: 'xxx.png',
+      status: 'done',
+      url: obj.imageUrl,
+    }]
+    this.setState({
+      title: obj.title,
+      describe: obj.describe,
+      href: obj.hrefStr,
+      fileList: arr,
+      uploadfinishUrl: obj.imageUrl,
+    })
+  }
+  componentDidMount() {
+    const self = this;
+    if (/pedit/.test(this.props.match.url)) {
+      const id = this.props.match.params.id
+      if (!this.props.project.list) {
+        self.setState({
+          loading: true
+        });
+        store.dispatch(getProjectById({id}, (data)=> {
+          self.setState({
+            loading: false
+          });
+          self._setEdit(data.data)
+        }))
+      } else {
+        const data = this.props.project.list.filter(item => item._id === id)
+        self._setEdit(data[0])
+      }
     }
   }
 
@@ -60,11 +119,17 @@ class AddProject extends Component {
     return (
       <section id="project">
         <p>项目标题：</p>
-        <Input onChange={this._handleIputChange.bind(this, 'title')} placeholder="项目标题" />
+        <Input value={this.state.title}
+               onInput={this._handleIputChange.bind(this, 'title')}
+               placeholder="项目标题" />
         <p>项目描述：</p>
-        <Input onChange={this._handleIputChange.bind(this, 'describe')} placeholder="项目描述" />
+        <Input value={this.state.describe}
+               onInput={this._handleIputChange.bind(this, 'describe')}
+               placeholder="项目描述" />
         <p>项目连接：</p>
-        <Input onChange={this._handleIputChange.bind(this, 'href')} placeholder="项目连接" />
+        <Input value={this.state.href}
+               onInput={this._handleIputChange.bind(this, 'href')}
+               placeholder="项目连接" />
         <p>上传图片：</p>
         <div className="clearfix">
           <Upload
@@ -89,7 +154,7 @@ class AddProject extends Component {
 
 const mapStateToProps = function(store) {
   return {
-    article: store.article
+    project: store.project
   };
 };
 

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Table, Icon} from 'antd';
 import { connect } from 'react-redux';
 import store from '../../redux/store.js';
-import {getArticle, removeArticle} from '../../action/article'
+import {getProjects, removeProject} from '../../action/project'
 class PostList extends Component {
   constructor (props) {
     super(props)
@@ -46,7 +46,7 @@ class PostList extends Component {
     self.setState({
       loading: true
     });
-    store.dispatch(removeArticle({id}, (data)=> {
+    store.dispatch(removeProject({id}, (data)=> {
       self.setState({
         loading: false
       });
@@ -55,7 +55,7 @@ class PostList extends Component {
   }
 
   goDetail (id) {
-    this.props.history.push(`/home/editor/${id}`)
+    this.props.history.push(`/home/pedit/${id}`)
   }
 
   handleTableChange (e) {
@@ -72,12 +72,11 @@ class PostList extends Component {
   }
   _getList() {
     const self = this
-    let page = this.state.page
     self.setState({
         loading: true
     });
-    store.dispatch(getArticle({page}, (data)=> {
-      console.log(data)
+    store.dispatch(getProjects({}, (data)=> {
+      console.log(this.props)
       const pagination = { ...self.state.pagination }
       pagination.total = data.count;
       self.setState({
@@ -98,7 +97,7 @@ class PostList extends Component {
       <section>
         <Table loading={this.state.loading}
                columns={columns}
-               dataSource={this.props.article.aticles || []}
+               dataSource={this.props.project.list || []}
                pagination={this.state.pagination}
                onChange={this.handleTableChange.bind(this)}/>
       </section>
@@ -108,7 +107,7 @@ class PostList extends Component {
 
 const mapStateToProps = function(store) {
   return {
-    article: store.article
+    project: store.project
   };
 };
 

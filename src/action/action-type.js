@@ -8,5 +8,10 @@ export const ADD = 'ADD';
 export const DELECT = 'DELECT';
 export const SHOW = 'SHOW';
 export const LOGIN = 'LOGIN'
+// article
 export const ADDARTICLE = 'ADDARTICLE'
 export const GETARTICLE = 'GETARTICLE'
+
+// project
+export const GETPROJECT = 'GETPROJECT'
+export const ADDPROJECT = 'ADDPROJECT'

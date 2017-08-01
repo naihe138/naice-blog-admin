@@ -16,6 +16,7 @@ import {Layout, Menu, Icon} from 'antd';
 import PostList from '../postList/postList'
 import addArticle from '../article/add'
 import editeArtcle from '../article/edite'
+import projectList from '../projectList/prjectList'
 import projectAdd from '../projectList/add'
 
 import './home.css'
@@ -44,8 +45,11 @@ class SiderDemo extends React.Component {
     if (e.key == 2) {
       str = '/home/add'
     }
+    if (e.key == 3) {
+      str = '/home/project'
+    }
     if (e.key == 4) {
-      str = '/home/project/add'
+      str = '/home/padd'
     }
     this.props.history.push(str)
   }
@@ -101,7 +105,9 @@ class SiderDemo extends React.Component {
                 <Route exact path='/home' component={PostList}/>
                 <Route path='/home/add' component={addArticle}/>
                 <Route path='/home/editor/:id' component={editeArtcle}/>
-                <Route path='/home/project/add' component={projectAdd}/>
+                <Route path='/home/project' component={projectList}/>
+                <Route path='/home/pedit/:id' component={projectAdd}/>
+                <Route path='/home/padd' component={projectAdd}/>
               </div>
             </Content>
             <Footer style={{textAlign: 'center'}}>

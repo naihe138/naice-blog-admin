@@ -9,11 +9,13 @@ import { combineReducers } from 'redux'
 import planlist from './planlist'
 import user from './user-reduser'
 import article from './article-reducer'
+import project from './project-reducer'
 // Combine Reducers
 var reducers = combineReducers({
   planlist: planlist,
   user: user,
-  article: article
+  article: article,
+  project: project
 });
 
 export default reducers;
