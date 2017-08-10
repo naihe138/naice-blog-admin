@@ -34,7 +34,11 @@ class AddProject extends Component {
   }
 
   handleChange = ({ fileList }) => {
-    console.log(fileList)
+    var role = localStorage.getItem('role')
+    if (role == '50') {
+      alert('你没有权限上传哦')
+      return
+    }
     if (fileList[0] && fileList[0].response && fileList[0].response.imgUrl) {
       this.setState({
         uploadfinishUrl: fileList[0].response.imgUrl

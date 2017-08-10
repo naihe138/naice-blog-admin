@@ -20,6 +20,7 @@ class Login extends Component {
           username: values.username,
           password: values.password
         }, data => {
+          localStorage.setItem('role', data.user.role + '')
           if (data.token) {
             this.props.history.push('/home')
           } else {
@@ -28,6 +29,19 @@ class Login extends Component {
         }));
       }
     });
+  }
+  youke() {
+    store.dispatch(toLogin({
+      username: 'test',
+      password: '123456'
+    }, data => {
+      localStorage.setItem('role', data.user.role + '')
+      if (data.token) {
+        this.props.history.push('/home')
+      } else {
+        alert(data.message)
+      }
+    }));
   }
   render () {
     const {getFieldDecorator} = this.props.form;
@@ -63,11 +77,11 @@ class Login extends Component {
               })(
                 <Checkbox>记住我</Checkbox>
               )}
-              <a className="login-form-forgot" href="">忘记密码</a>
+              <a className="login-form-forgot" href="/">忘记密码</a>
               <Button type="primary" htmlType="submit" className="login-form-button">
                 登录
               </Button>
-              或者 <a href="/">现在注册!</a>
+              或者 <a onClick={this.youke.bind(this)}>游客登录!</a>
             </FormItem>
           </Form>
         </div>
