@@ -26,7 +26,7 @@ _斜体文字_
     alert('这个是自定义按钮')
   }
   _subEditor() {
-    console.log(123)
+
   }
   _editorChange(oldStr, newStr) {
     console.log(oldStr)

@@ -64,11 +64,8 @@ class PostList extends Component {
         page: e.current - 1
     });
     setTimeout(()=>{
-      console.log(self.state.page)
       self._getList()
     })
-    // console.log(this.state.page)
-    // this._getList()
   }
   _getList() {
     const self = this
@@ -76,7 +73,6 @@ class PostList extends Component {
         loading: true
     });
     store.dispatch(getProjects({}, (data)=> {
-      console.log(this.props)
       const pagination = { ...self.state.pagination }
       pagination.total = data.count;
       self.setState({

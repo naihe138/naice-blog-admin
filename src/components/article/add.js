@@ -43,7 +43,6 @@ class Markdown extends React.Component{
       editStr,
       contentStr
     }, (data) => {
-      console.log('这走不走这里？？？在逗我')
       self.props.history.push('/home')
     }))
   }

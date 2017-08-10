@@ -21,7 +21,7 @@ class Login extends Component {
           password: values.password
         }, data => {
           localStorage.setItem('role', data.user.role + '')
-          if (data.token) {
+          if (data.status) {
             this.props.history.push('/home')
           } else {
             alert(data.message)
@@ -36,7 +36,7 @@ class Login extends Component {
       password: '123456'
     }, data => {
       localStorage.setItem('role', data.user.role + '')
-      if (data.token) {
+      if (data.status) {
         this.props.history.push('/home')
       } else {
         alert(data.message)

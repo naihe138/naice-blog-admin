@@ -26,7 +26,6 @@ const {Header, Content, Footer, Sider} = Layout;
 class SiderDemo extends React.Component {
   constructor (props) {
     super(props)
-    console.log(props.user)
   }
   state = {
     collapsed: false,

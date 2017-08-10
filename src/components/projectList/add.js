@@ -162,7 +162,8 @@ class AddProject extends Component {
 
 const mapStateToProps = function(store) {
   return {
-    project: store.project
+    project: store.project,
+    user: store.user
   };
 };
 

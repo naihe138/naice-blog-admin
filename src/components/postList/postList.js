@@ -64,7 +64,6 @@ class PostList extends Component {
         page: e.current - 1
     });
     setTimeout(()=>{
-      console.log(self.state.page)
       self._getList()
     })
     // console.log(this.state.page)
