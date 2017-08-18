@@ -5,7 +5,7 @@
  */
 
 // const baseURL = 'http://127.0.0.1:3030/api/backstage'
-const baseURL = 'http://blog.naice.me/api/backstage'
+const baseURL = 'https://blog.naice.me/api/backstage'
 export default {
   // 登录
   login: baseURL + '/user/login',
