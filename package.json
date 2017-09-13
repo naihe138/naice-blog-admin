@@ -10,6 +10,7 @@
     "history": "^4.6.3",
     "marked": "^0.3.6",
     "react": "^15.6.1",
+    "react-code-splitting": "^1.2.0",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1"
@@ -54,7 +55,7 @@
     "style-loader": "0.17.0",
     "sw-precache-webpack-plugin": "0.9.1",
     "url-loader": "0.5.8",
-    "webpack": "2.6.1",
+    "webpack": "^2.6.1",
     "webpack-dev-server": "2.4.5",
     "webpack-manifest-plugin": "1.1.0",
     "whatwg-fetch": "2.0.3"

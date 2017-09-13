@@ -7,14 +7,11 @@ import {
 import { Provider, connect } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 import store from './redux/store.js'
+
 import asyncComponent from './AsyncComponent'
-// 同步引入
-import Longin from './components/longin/login'
-// import PostList from './components/postList/postList'
-import Home from './components/home/home'
-// import PostDetail from './components/postDetail/postDetail'
-// 异步组件
-// const AsyncHome = asyncComponent(() => import('./components/postDetail/postDetail'));
+const Longin = asyncComponent(() => import('./components/longin/login'));
+const Home = asyncComponent(() => import('./components/home/home'));
+
 const history = createHistory()
 class App extends Component {
   render() {

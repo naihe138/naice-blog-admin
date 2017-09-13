@@ -10,7 +10,7 @@ import store from '../../redux/store.js';
 import { getProjectById, editProjectById, addProject } from '../../action/project'
 import './project.css'
 // const uploadURL = 'http://127.0.0.1:3030/api/backstage/upload'
-const uploadURL = 'http://blog.naice.me/api/backstage/upload'
+const uploadURL = 'https://blog.naice.me/api/backstage/upload'
 class AddProject extends Component {
   constructor(props) {
     super(props)

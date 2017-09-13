@@ -10,17 +10,24 @@ import {
   Link
 } from 'react-router-dom'
 import { connect } from 'react-redux';
-import store from '../../redux/store.js';
+// import store from '../../redux/store.js';
 import {Layout, Menu, Icon} from 'antd';
+import './home.css'
+import img from '../../assets/imgs/averter.jpg'
+
+// import asyncComponent from '../../AsyncComponent';
+//
+// const PostList = asyncComponent(() => import('../postList/postList'));
+// const addArticle = asyncComponent(() => import('../article/add'));
+// const editeArtcle = asyncComponent(() => import('../article/edite'));
+// const projectList = asyncComponent(() => import('../projectList/prjectList'));
+// const projectAdd = asyncComponent(() => import('../projectList/add'));
 
 import PostList from '../postList/postList'
 import addArticle from '../article/add'
 import editeArtcle from '../article/edite'
 import projectList from '../projectList/prjectList'
 import projectAdd from '../projectList/add'
-
-import './home.css'
-import img from '../../assets/imgs/averter.jpg'
 
 const {Header, Content, Footer, Sider} = Layout;
 class SiderDemo extends React.Component {
