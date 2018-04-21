@@ -1,9 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-// import registerServiceWorker from './registerServiceWorker';
-import './index.css';
-import './assets/styles/site.less'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './static/css/init.css'
+import App from './App'
+import registerServiceWorker from './registerServiceWorker'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
+ReactDOM.render(<App />, document.getElementById('root'))
+registerServiceWorker()
