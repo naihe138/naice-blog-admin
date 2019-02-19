@@ -9,6 +9,7 @@ import articleReducer from './article'
 import heroReducer from './hero'
 import commentReducer from './comment'
 import projectReducer from './project'
+import musicReducer from './music'
 
 const reducers = combineReducers({
   countObj: countReducer,
@@ -16,7 +17,8 @@ const reducers = combineReducers({
   articleList: articleReducer,
   hero: heroReducer,
   comment: commentReducer,
-  project: projectReducer
+  project: projectReducer,
+  music: musicReducer
 });
 
 const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(thunkMiddleware)))

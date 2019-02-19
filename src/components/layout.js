@@ -18,6 +18,7 @@ const subArr3 = ['/hero']
 const subArr4 = ['/comment']
 
 const subArr5 = ['/project', '/addProject']
+const subArr6 = ['/music', 'addMusic']
 
 class mLayout extends Component {
   
@@ -55,6 +56,9 @@ class mLayout extends Component {
     if (subArr5.includes(path)) {
       sub = 'sub5'
     }
+    if (subArr6.includes(path)) {
+      sub = 'sub5'
+    }
     return (
       <Layout className="gwrap">
         <Layout>
@@ -88,6 +92,10 @@ class mLayout extends Component {
               <SubMenu key="sub5" title={<span><Icon type="appstore" />项目管理</span>}>
                 <Menu.Item key="/project">全部项目</Menu.Item>
                 <Menu.Item key="/addProject">新增项目</Menu.Item>
+              </SubMenu>
+              <SubMenu key="sub6" title={<span><Icon type="appstore" />音乐管理</span>}>
+                <Menu.Item key="/music">全部音乐</Menu.Item>
+                <Menu.Item key="/addMusic">新增音乐</Menu.Item>
               </SubMenu>
             </Menu>
           </Sider>

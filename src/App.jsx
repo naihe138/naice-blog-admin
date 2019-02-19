@@ -43,6 +43,9 @@ const App = () => (
         <Route path="/project" component={loadComponent('projectList')}/>
         <Route path="/addProject" component={loadComponent('addProject')}/>
         <Route path="/editeProject/:id" component={loadComponent('addProject')}/>
+        <Route path="/music" component={loadComponent('music')}/>
+        <Route path="/addMusic" component={loadComponent('addMusic')}/>
+        <Route path="/editMusic/:id" component={loadComponent('addMusic')}/>
         <Route component={loadComponent('404')}/>
       </Switch>
     </Router>

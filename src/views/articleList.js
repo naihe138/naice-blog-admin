@@ -50,7 +50,7 @@ class ArticleList extends React.Component {
         key: 'action',
         render: (text, record) => (
           <span>
-            <Link to="/">查看</Link>
+            <a href={`https://blog.naice.me/article/${record._id}`} target="_brank">查看</a>
             <Divider type="vertical" />
             <Link to={`/edite/${record._id}`}>修改</Link>
             <Divider type="vertical" />

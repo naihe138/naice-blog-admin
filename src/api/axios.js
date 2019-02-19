@@ -10,14 +10,20 @@ const ax = axios.create({
 })
 
 const methodArr = ['post', 'put', 'delete', 'patch']
+
+export const getAuthorization = () => {
+  let str = ''
+  if (window.localStorage.getItem('TOKEN')) {
+    str = `Naice ${JSON.parse(window.localStorage.getItem('TOKEN') || '').token}`
+  }
+  return str
+}
 // 拦截器
 ax.interceptors.request.use(config => {
   if (methodArr.includes(config.method)) {
     config.data = querystring.stringify(config.data)
   }
-  if (window.localStorage.getItem('TOKEN')) {
-    config.headers.Authorization = `Naice ${JSON.parse(window.localStorage.getItem('TOKEN') || '').token}`
-  }
+  config.headers.Authorization = getAuthorization()
   return config
 }, (error) => {
   return Promise.reject(error)

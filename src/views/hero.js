@@ -118,7 +118,7 @@ class Hero extends React.Component {
     }
   }
   getHero () {
-    this.props.getHero().then(res => {
+    this.props.getHero({state: ''}).then(res => {
       const {list =[] } = res.result
       this.setState({data: list})
       this.cacheData = list
