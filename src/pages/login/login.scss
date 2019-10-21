@@ -5,6 +5,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('../../common/images/aside-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   .login-form {
     width: 300px;
   }
