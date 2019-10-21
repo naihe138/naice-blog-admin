@@ -1,11 +1,14 @@
-import React from 'react';
-// import { Layout } from './common/layout/index'
-// import { RouteConfigExample } from './router/index'
-import { RouteConfigExample } from './common/layout/index'
-
-export default () => {
-  return <div>
-    <h1>app page</h1>
-    <RouteConfigExample></RouteConfigExample>
-  </div>
+import React from 'react'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import { routes, RouteWithSubRoutes } from './router'
+export default function App() {
+  return (
+    <Router>
+      <Switch>
+        {routes.map((route, i) => (
+          <RouteWithSubRoutes key={i} {...route} />
+        ))}
+      </Switch>
+    </Router>
+  )
 }

@@ -5,6 +5,7 @@ import './login.scss'
 function LoginForm (props: FormComponentProps) {
   const { getFieldDecorator } = props.form
   const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
     props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)
