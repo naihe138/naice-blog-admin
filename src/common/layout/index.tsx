@@ -1,12 +1,14 @@
 import React from 'react'
+import { RouterProps } from 'react-router'
 import Side from './side'
 import Main from './main'
+import './layout.scss'
 
-export function Layout() {
+export default function Layout(props: RouterProps) {
   return (
     <section className="layout">
       <Side />
-      <Main />
+      <Main {...props} />
     </section>
   )
 }

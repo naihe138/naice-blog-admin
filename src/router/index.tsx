@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import loadable from '@loadable/component'
 
+const Layout = loadable(() => import('../common/layout'))
 const Login = loadable(() => import('../pages/login'))
 const Home = loadable(() => import('../pages/home'))
 
@@ -11,48 +12,16 @@ export const routes = [
     component: Login
   },
   {
-    path: '/home',
-    component: Home
-  },
-  // {
-  //   path: '/tacos',
-  //   component: Tacos,
-  //   children: [
-  //     {
-  //       path: '/tacos/bus',
-  //       component: Bus
-  //     },
-  //     {
-  //       path: '/tacos/cart',
-  //       component: Cart
-  //     }
-  //   ]
-  // }
+    path: '/',
+    component: Layout,
+    children: [
+      {
+        path: '/home',
+        component: Home
+      }
+    ]
+  }
 ]
-
-// function Tacos(route: routerItem) {
-//   return (
-//     <div>
-//       <h2>Tacos</h2>
-//       <ul>
-//         <li>
-//           <Link to="/tacos/bus">Bus</Link>
-//         </li>
-//         <li>
-//           <Link to="/tacos/cart">Cart</Link>
-//         </li>
-//       </ul>
-//       {
-//         route.children ?
-//         <Switch>
-//           {route.children.map((route:routerItem, i:number) => (
-//             <RouteWithSubRoutes key={i} {...route} />
-//           ))}
-//         </Switch> : null
-//       }
-//     </div>
-//   );
-// }
 
 export function RouteWithSubRoutes(route: any) {
   return (
