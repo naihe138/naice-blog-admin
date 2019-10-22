@@ -1,14 +1,17 @@
 import React from 'react'
 import { Form, Icon, Input, Button } from 'antd'
 import { FormComponentProps } from 'antd/lib/form/Form'
+import { RouterProps } from 'react-router'
 import './login.scss'
-function LoginForm (props: FormComponentProps) {
-  const { getFieldDecorator } = props.form
+
+function LoginForm (props: (FormComponentProps & RouterProps)) {
+  const { form, history } = props
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    props.form.validateFields((err, values) => {
+    form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)
+        history.push('/home')
       }
     })
   }
@@ -18,7 +21,7 @@ function LoginForm (props: FormComponentProps) {
       <Form onSubmit={ handleSubmit } className="login-form">
         <Form.Item>
           {
-            getFieldDecorator('username', {
+            form.getFieldDecorator('username', {
               rules: [{ required: true, message: 'Please input your username!' }],
             })(
               <Input
@@ -30,7 +33,7 @@ function LoginForm (props: FormComponentProps) {
         </Form.Item>
         <Form.Item>
           {
-            getFieldDecorator('password', {
+            form.getFieldDecorator('password', {
               rules: [{ required: true, message: 'Please input your Password!' }],
             })(
               <Input
@@ -51,4 +54,4 @@ function LoginForm (props: FormComponentProps) {
   )
 }
 
-export default Form.create({ name: 'blog_login' })(LoginForm)
+export default Form.create({ name: 'admin_login' })(LoginForm)

@@ -9,8 +9,8 @@ interface menuProps{
 }
 export default function Munu(props: menuProps) {
   const { collapsed } = props
-  let click = (e: ClickParam) => {
-    console.log(e)
+  let click = (path?: string) => {
+    console.log(path)
   }
   return (
     <Menu
@@ -19,7 +19,6 @@ export default function Munu(props: menuProps) {
       mode="inline"
       className="menu"
       inlineCollapsed={collapsed}
-      onClick={click}
     >
       {
         menuConfig.map((menu: menuType) => {
@@ -35,7 +34,7 @@ export default function Munu(props: menuProps) {
             >
               {
                 menu.children ?
-                menu.children.map((item: menuType) => <Menu.Item key={item.key}>{item.title}</Menu.Item>) :
+                menu.children.map((item: menuType) => <Menu.Item key={item.key} onClick={() => click(item.path)}>{item.title}</Menu.Item>) :
                 null
               }
             </SubMenu>
