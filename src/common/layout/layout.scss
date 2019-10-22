@@ -1,11 +1,30 @@
 .layout {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
 }
 
 .side {
-  width: 300px;
+  height: 100%;
+  max-width: 180px;
+  overflow: hidden;
+  .ant-menu {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: calc(100% - 40px);
+  }
+  .colseMenu {
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    border-right: 1px solid #e8e8e8;
+    cursor: pointer;
+    transition: width 0.2s;
+  }
 }
 
 .main {
   flex: 1;
 }
+

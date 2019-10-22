@@ -1,67 +1,54 @@
 import React from 'react'
 import { Menu, Icon } from 'antd'
+import { menuConfig, menuType } from './menu-config'
+import { ClickParam } from 'antd/es/menu/index.d'
 const { SubMenu } = Menu
-
 export default function Layout() {
 
   let [collapsed, setCollapsed] = React.useState(false)
 
-  let onCollapse = (collapsed: boolean) => {
-    console.log(collapsed)
-    setCollapsed(collapsed)
+  let onCollapse = () => {
+    setCollapsed(!collapsed)
+  }
+
+  let click = (e: ClickParam) => {
+    console.log(e)
   }
   return (
     <div className="side">
       <Menu
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
+        defaultSelectedKeys={['article-list']}
+        defaultOpenKeys={['article']}
         mode="inline"
-        theme="dark"
+        className="menu"
         inlineCollapsed={collapsed}
+        onClick={click}
       >
-        <Menu.Item key="1">
-          <Icon type="pie-chart" />
-          <span>Option 1</span>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <Icon type="desktop" />
-          <span>Option 2</span>
-        </Menu.Item>
-        <Menu.Item key="3">
-          <Icon type="inbox" />
-          <span>Option 3</span>
-        </Menu.Item>
-        <SubMenu
-          key="sub1"
-          title={
-            <span>
-              <Icon type="mail" />
-              <span>Navigation One</span>
-            </span>
-          }
-        >
-          <Menu.Item key="5">Option 5</Menu.Item>
-          <Menu.Item key="6">Option 6</Menu.Item>
-          <Menu.Item key="7">Option 7</Menu.Item>
-          <Menu.Item key="8">Option 8</Menu.Item>
-        </SubMenu>
-        <SubMenu
-          key="sub2"
-          title={
-            <span>
-              <Icon type="appstore" />
-              <span>Navigation Two</span>
-            </span>
-          }
-        >
-          <Menu.Item key="9">Option 9</Menu.Item>
-          <Menu.Item key="10">Option 10</Menu.Item>
-          <SubMenu key="sub3" title="Submenu">
-            <Menu.Item key="11">Option 11</Menu.Item>
-            <Menu.Item key="12">Option 12</Menu.Item>
-          </SubMenu>
-        </SubMenu>
+        {
+          menuConfig.map((menu: menuType) => {
+            return (
+              <SubMenu
+                key={menu.key}
+                title={
+                  <span>
+                    <Icon type={menu.icon} />
+                    <span>{menu.title}</span>
+                  </span>
+                }
+              >
+                {
+                  menu.children ?
+                  menu.children.map((item: menuType) => <Menu.Item key={item.key}>{item.title}</Menu.Item>) :
+                  null
+                }
+              </SubMenu>
+            )
+          })
+        }
       </Menu>
+      <div className="colseMenu" onClick={onCollapse} style={{width: collapsed ? '80px' : '180px'}}>
+        <Icon type={collapsed ? 'left' : 'right'} />
+      </div>
     </div>
   )
 }
