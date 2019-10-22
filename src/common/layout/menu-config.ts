@@ -1,4 +1,3 @@
-
 export interface menuType {
   title: string,
   key: string,
