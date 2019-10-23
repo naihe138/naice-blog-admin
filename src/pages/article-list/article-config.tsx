@@ -18,6 +18,7 @@ export const columns:ColumnProps<Article>[] = [
   {
     title: '#',
     width: 50,
+    key: 'tindex',
     render: (text, record, dataIndex) => <span>{dataIndex}</span>
   },
   {
@@ -25,7 +26,7 @@ export const columns:ColumnProps<Article>[] = [
     dataIndex: 'name',
     width: 500,
     key: 'name',
-    render: text => <a>{text}</a>,
+    render: text => <a>{text}</a>
   },
   {
     title: '标签',
@@ -45,75 +46,33 @@ export const columns:ColumnProps<Article>[] = [
           )
         })}
       </span>
-    ),
+    )
   },
-  {
-    title: '时间',
-    dataIndex: 'name',
-    width: 130,
-    key: 'name',
-    render: text => <a>{text}</a>,
-  },
+  // {
+  //   title: '时间',
+  //   dataIndex: 'time',
+  //   width: 130,
+  //   key: 'time',
+  //   render: text => <a>{text}</a>
+  // },
   {
     title: '编辑',
     key: 'action',
     width: 150,
     render: (text, record) => (
-      <span>
+      <div className="btnbox">
         <a>查看</a>
         <Divider type="vertical" />
         <a>修改</a>
         <Divider type="vertical" />
         <a>删除</a>
-      </span>
-    ),
-  },
-];
+      </div>
+    )
+  }
+]
 
 
 export const data:Article[] = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
   {
     key: '1',
     name: 'John Brown',

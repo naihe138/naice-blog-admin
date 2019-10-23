@@ -1,7 +1,7 @@
 import React from 'react'
 import { Menu, Icon } from 'antd'
 import { menuConfig, menuType } from './menu-config'
-import { ClickParam } from 'antd/es/menu/index.d'
+// import { ClickParam } from 'antd/es/menu/index.d'
 const { SubMenu } = Menu
 
 interface menuProps{

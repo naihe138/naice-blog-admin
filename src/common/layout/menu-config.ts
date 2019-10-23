@@ -15,39 +15,39 @@ export const menuConfig:menuType[] = [
       {
         title: '文章列表',
         key: 'article-list',
-        path: '/'
+        path: '/article'
       },
       {
         title: '添加文章',
         key: 'add-article',
-        path: '/'
+        path: '/add-article'
       },
       {
         title: '草稿箱',
         key: 'draft',
-        path: '/'
+        path: '/draft'
       },
       {
         title: '文章归类',
         key: 'classify',
-        path: '/'
+        path: '/article-classify'
       }
     ]
   },
   {
     title: '标签管理',
-    key: 'lebel',
+    key: 'tags',
     icon: 'tags',
     children: [
       {
         title: '全部标签',
-        key: 'all-lable',
-        path: '/'
+        key: 'all-tags',
+        path: '/tags'
       },
       {
         title: '新增标签',
-        key: 'add-lable',
-        path: '/'
+        key: 'add-tags',
+        path: '/add-tag'
       }
     ]
   },
@@ -59,12 +59,12 @@ export const menuConfig:menuType[] = [
       {
         title: '全部留言',
         key: 'all-message',
-        path: '/'
+        path: '/message'
       },
       {
         title: '新增留言',
         key: 'add-message',
-        path: '/'
+        path: '/add-message'
       }
     ]
   },
@@ -76,7 +76,7 @@ export const menuConfig:menuType[] = [
       {
         title: '文章评论',
         key: 'article-discuss',
-        path: '/'
+        path: '/comments'
       }
     ]
   },
@@ -88,12 +88,12 @@ export const menuConfig:menuType[] = [
       {
         title: '全部项目',
         key: 'all-project',
-        path: '/'
+        path: '/project'
       },
       {
         title: '新增项目',
         key: 'add-project',
-        path: '/'
+        path: '/add-project'
       }
     ]
   },
@@ -105,12 +105,12 @@ export const menuConfig:menuType[] = [
       {
         title: '音乐列表',
         key: 'music-list',
-        path: '/'
+        path: '/music'
       },
       {
         title: '新增音乐',
         key: 'add-music',
-        path: '/'
+        path: '/add-music'
       }
     ]
   }
