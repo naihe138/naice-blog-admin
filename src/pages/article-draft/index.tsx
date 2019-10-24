@@ -1,5 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import { Table } from 'antd'
+import { columns, data } from './article-config'
 
-export default function ArticleDraft () {
-  return <h1>文章草稿箱</h1>
-}
+export default () => <Table columns={columns} dataSource={data} bordered size="middle" />
