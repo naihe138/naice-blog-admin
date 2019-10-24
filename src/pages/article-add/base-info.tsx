@@ -1,16 +1,16 @@
 import * as React from 'react'
-import { Form, Input, Col, Button, Select } from 'antd'
+import { Form, Input, Col, Select } from 'antd'
 import { FormComponentProps } from 'antd/es/form'
 const { Option } = Select
 
 function BaseInfo(props: FormComponentProps) {
-  function handleSubmit (e: React.MouseEvent) {
-    props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values)
-      }
-    })
-  }
+  // function handleSubmit (e: React.MouseEvent) {
+  //   props.form.validateFields((err, values) => {
+  //     if (!err) {
+  //       console.log('Received values of form: ', values)
+  //     }
+  //   })
+  // }
   const { getFieldDecorator } = props.form
   return (
     <div className="baseInfo">
