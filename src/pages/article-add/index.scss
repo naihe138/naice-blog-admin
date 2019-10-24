@@ -1,5 +1,41 @@
 .baseInfo {
+  overflow: hidden;
   .ant-form-inline .ant-form-item {
     width: 100%;
   }
+  .ant-col {
+    height: 56px;
+  }
+}
+$boxHeight: 500px;
+.edit {
+  display: flex;
+  height: $boxHeight;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #d9d9d9;
+  margin-top: 20px;
+  border-radius: 2px;
+  .box {
+    flex: 1;
+    height: $boxHeight;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  .leftbox {
+    border-right: 1px solid #d9d9d9;
+    textarea {
+      width: 100%;
+      border: 0;
+      margin: 0;
+      outline: none;
+      height: $boxHeight;
+    }
+  }
+  .rightbox {
+    overflow: auto;
+  }
+}
+.btnbox {
+  margin-top: 20px;
 }

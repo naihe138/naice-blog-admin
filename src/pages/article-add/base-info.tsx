@@ -60,11 +60,11 @@ function BaseInfo(props: FormComponentProps) {
             }
           </Form.Item>
         </Col>
-        <Col span={14}>
+        {/* <Col span={14}>
           <Form.Item>
             <Button onClick={handleSubmit}>提交</Button>
           </Form.Item>
-        </Col>
+        </Col> */}
       </Form>
     </div>
   )
