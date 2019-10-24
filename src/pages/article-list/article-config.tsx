@@ -26,7 +26,7 @@ export const columns:ColumnProps<Article>[] = [
     dataIndex: 'name',
     width: 500,
     key: 'name',
-    render: text => <a>{text}</a>
+    render: text => <a href="javascript(void 0)">{text}</a>
   },
   {
     title: '标签',
@@ -61,11 +61,11 @@ export const columns:ColumnProps<Article>[] = [
     width: 150,
     render: (text, record) => (
       <div className="btnbox">
-        <a>查看</a>
+        <a href="javascript(void 0)">查看</a>
         <Divider type="vertical" />
-        <a>修改</a>
+        <a href="javascript(void 0)">修改</a>
         <Divider type="vertical" />
-        <a>删除</a>
+        <a href="javascript(void 0)">删除</a>
       </div>
     )
   }

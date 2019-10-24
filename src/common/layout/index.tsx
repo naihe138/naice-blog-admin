@@ -7,7 +7,7 @@ import './layout.scss'
 export default function Layout(props: RouterProps) {
   return (
     <section className="layout">
-      <Side />
+      <Side {...props} />
       <Main {...props} />
     </section>
   )

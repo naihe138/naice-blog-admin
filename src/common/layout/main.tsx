@@ -4,7 +4,6 @@ import { RouteWithSubRoutes } from '../../router/index'
 
 
 export default function Layout(props: any) {
-  console.log(11, props)
   const P = {
     computedMatch: props.computedMatch,
     history: props.history,
@@ -19,7 +18,7 @@ export default function Layout(props: any) {
         props.children ? 
         <Switch>
           {
-            props.children.map((route: any, i:number) => <RouteWithSubRoutes key={i} {...route} {...P} />)
+            props.children.map((route: any, i:number) => <RouteWithSubRoutes key={i} {...P} {...route} />)
           }
         </Switch> : null
       }

@@ -1,5 +1,10 @@
 import * as React from 'react'
-
+import BaseInfo from './base-info'
+import './index.scss'
 export default function AddArticle () {
-  return <h1>添加文章</h1>
+  return (
+    <div>
+      <BaseInfo />
+    </div>
+  )
 }
