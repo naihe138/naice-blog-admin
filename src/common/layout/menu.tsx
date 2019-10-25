@@ -17,7 +17,6 @@ export default function Munu(props: (menuProps & RouterProps)) {
   }
   return (
     <Menu
-      defaultSelectedKeys={['article-list']}
       defaultOpenKeys={['article']}
       mode="inline"
       className="menu"

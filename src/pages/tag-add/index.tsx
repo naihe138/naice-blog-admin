@@ -14,7 +14,7 @@ function AddTag (props: FormComponentProps) {
   }
   const formItemLayout = {
     labelCol: { span: 4 },
-    wrapperCol: { span: 14 },
+    wrapperCol: { span: 19 },
   }
   return (
     <Form onSubmit={handleSubmit} layout='horizontal' {...formItemLayout} className="addtag">
@@ -32,9 +32,9 @@ function AddTag (props: FormComponentProps) {
           })(<Input placeholder="请填写描述" />)
         }
       </Form.Item>
-      <Form.Item>
+      <div className="btnbox">
         <Button type="primary" htmlType="submit" className="btn">提交</Button>
-      </Form.Item>
+      </div>
     </Form>
   )
 }

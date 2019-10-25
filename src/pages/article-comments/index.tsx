@@ -1,5 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import { Table } from 'antd'
+import { columns, data } from './article-config'
 
-export default function ArticleComments () {
-  return <h1>文章评论</h1>
-}
+export default () => <Table columns={columns} dataSource={data} bordered size="middle" />
