@@ -14,7 +14,7 @@ function AddTag (props: FormComponentProps) {
   }
   const formItemLayout = {
     labelCol: { span: 4 },
-    wrapperCol: { span: 19 },
+    wrapperCol: { span: 20 },
   }
   return (
     <Form onSubmit={handleSubmit} layout='horizontal' {...formItemLayout} className="addtag">

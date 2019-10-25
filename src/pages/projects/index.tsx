@@ -1,5 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import { Table } from 'antd'
+import { columns, data } from './article-config'
 
-export default function AllProjects () {
-  return <h1>全部项目</h1>
-}
+export default () => <Table columns={columns} dataSource={data} bordered size="middle" />
