@@ -1,5 +1,5 @@
-import * as React from 'react'
+import React from 'react'
+import { Table } from 'antd'
+import { columns, data } from './music-config'
 
-export default function MusicList () {
-  return <h1>音乐列表</h1>
-}
+export default () => <Table columns={columns} dataSource={data} bordered size="middle" />

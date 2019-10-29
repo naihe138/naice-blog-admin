@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button,  Radio } from 'antd'
 import { FormComponentProps } from 'antd/es/form'
 import './index.scss'
 function AddTag (props: FormComponentProps) {
@@ -45,6 +45,23 @@ function AddTag (props: FormComponentProps) {
           form.getFieldDecorator('githubUrl', {
             rules: [{ required: true, message: '请填写项目github地址!' }]
           })(<Input placeholder="请填写项目github地址" />)
+        }
+      </Form.Item>
+      <Form.Item label="项目图标">
+        {
+          form.getFieldDecorator('radio-button')(
+            <Radio.Group>
+              <Radio.Button value="a">item 1</Radio.Button>
+              <Radio.Button value="b">item 2</Radio.Button>
+              <Radio.Button value="c">item 3</Radio.Button>
+              <Radio.Button value="a">item 1</Radio.Button>
+              <Radio.Button value="b">item 2</Radio.Button>
+              <Radio.Button value="c">item 3</Radio.Button>
+              <Radio.Button value="a">item 1</Radio.Button>
+              <Radio.Button value="b">item 2</Radio.Button>
+              <Radio.Button value="c">item 3</Radio.Button>
+            </Radio.Group>,
+          )
         }
       </Form.Item>
       <div  className="btnbox">
