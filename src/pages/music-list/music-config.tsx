@@ -22,29 +22,31 @@ export const columns:ColumnProps<Article>[] = [
     render: (text, record, dataIndex) => <span>{dataIndex}</span>
   },
   {
-    title: '标题',
+    title: '歌名',
     dataIndex: 'name',
-    width: 300,
+    width: 160,
     key: 'name',
     render: text => <a href="javascript(void 0)">{text}</a>
   },
   {
-    title: 'icon图标',
+    title: '歌手',
+    key: 'tags',
+    width: 100,
+    dataIndex: 'tags'
+  },
+  {
+    title: '海报',
+    key: 'tags',
+    width: 120,
+    dataIndex: 'tags'
+  },
+  {
+    title: '歌曲链接',
     key: 'tags',
     dataIndex: 'tags'
   },
   {
-    title: '预览地址',
-    key: 'tags',
-    dataIndex: 'tags'
-  },
-  {
-    title: 'github地址',
-    key: 'tags',
-    dataIndex: 'tags'
-  },
-  {
-    title: '编辑',
+    title: '操作',
     key: 'action',
     width: 150,
     render: (text, record) => (

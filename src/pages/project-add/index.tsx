@@ -1,7 +1,10 @@
 import React from 'react'
 import { Form, Input, Button,  Radio } from 'antd'
 import { FormComponentProps } from 'antd/es/form'
+import { peojectIcon } from './config'
+import BIcon from '../../common/components/bicon'
 import './index.scss'
+
 function AddTag (props: FormComponentProps) {
   const form = props.form
   function handleSubmit (e: React.FormEvent) {
@@ -51,15 +54,9 @@ function AddTag (props: FormComponentProps) {
         {
           form.getFieldDecorator('radio-button')(
             <Radio.Group>
-              <Radio.Button value="a">item 1</Radio.Button>
-              <Radio.Button value="b">item 2</Radio.Button>
-              <Radio.Button value="c">item 3</Radio.Button>
-              <Radio.Button value="a">item 1</Radio.Button>
-              <Radio.Button value="b">item 2</Radio.Button>
-              <Radio.Button value="c">item 3</Radio.Button>
-              <Radio.Button value="a">item 1</Radio.Button>
-              <Radio.Button value="b">item 2</Radio.Button>
-              <Radio.Button value="c">item 3</Radio.Button>
+              {
+                peojectIcon.map((icon:string) => <Radio.Button value={icon}><BIcon type={icon}></BIcon></Radio.Button>)
+              }
             </Radio.Group>,
           )
         }

@@ -60,7 +60,7 @@ export const columns:ColumnProps<Article>[] = [
     key: 'action',
     width: 150,
     render: (text, record) => (
-      <div className="btnbox">
+      <div>
         <a href="javascript(void 0)">查看</a>
         <Divider type="vertical" />
         <a href="javascript(void 0)">修改</a>

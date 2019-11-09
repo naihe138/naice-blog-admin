@@ -1,5 +1,13 @@
-import * as React from 'react'
+import React from 'react'
+import HeaderTittle from '../../common/components/header-title'
 
 export default function AticleClassify () {
-  return <h1>文章归类</h1>
+  return (
+    <>
+      <HeaderTittle title="添加文章" />
+      <div className="p20">
+        文章分类
+      </div>
+    </>
+  )
 }

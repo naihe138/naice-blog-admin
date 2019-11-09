@@ -2,7 +2,6 @@ import React from 'react'
 import { Switch } from 'react-router-dom'
 import { RouteWithSubRoutes } from '../../router/index'
 
-
 export default function Layout(props: any) {
   const P = {
     computedMatch: props.computedMatch,
