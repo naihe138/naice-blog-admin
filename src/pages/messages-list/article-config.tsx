@@ -12,6 +12,7 @@ export interface Article {
   age: number,
   address: string,
   tags: string[],
+  status: Number
 }
 
 export const columns:ColumnProps<Article>[] = [
@@ -35,17 +36,17 @@ export const columns:ColumnProps<Article>[] = [
   },
   {
     title: '留言邮箱',
-    key: 'tags',
+    key: 'age',
     dataIndex: 'tags'
   },
   {
     title: 'web地址',
-    key: 'tags',
+    key: 'address',
     dataIndex: 'tags'
   },
   {
     title: '状态',
-    key: 'tags',
+    key: 'status',
     dataIndex: 'tags'
   },
   {
@@ -70,19 +71,6 @@ export const data:Article[] = [
     age: 32,
     address: 'New York No. 1 Lake Park',
     tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    status: 1
   }
 ]
