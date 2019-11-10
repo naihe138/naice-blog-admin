@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './index.scss'
 interface TittleProps {
   title: string
 }

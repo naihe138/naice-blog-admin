@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { FunctionComponent } from 'react'
 import HeaderTittle from './header-title'
 
-interface TittleProps {
-  title: string,
-  children: React.Component
+type TittleProps = {
+  title: string
 }
 
-export default function PageLayout (props: TittleProps) {
+const PageLayout:FunctionComponent<TittleProps> = props => {
+  console.log(props)
   return (
     <>
       <HeaderTittle title={props.title} />
@@ -16,3 +16,5 @@ export default function PageLayout (props: TittleProps) {
     </>
   )
 }
+
+export default PageLayout
