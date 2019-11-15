@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Menu, Icon } from 'antd'
 import { menuConfig, menuType } from './menu-config'
 import { RouterProps } from 'react-router'

@@ -1,35 +1,53 @@
 import React from 'react'
-import { Divider } from 'antd'
+import { Divider, Input } from 'antd'
 import { ColumnProps } from 'antd/es/table'
 
-export interface recordType{
+export interface Tags {
+  descript: string
   name: string
 }
-
-export interface Article {
-  key: string,
-  name: string,
-  age: number,
-  address: string
+interface EditableCellPrams{
+  editable: boolean
+  value: string,
+  onChange: () => {}
 }
+// const EditableCell = ({ editable, value, onChange }:EditableCellPrams) => (
+//   <div>
+//     {editable
+//       ? <Input style={{ margin: '-5px 0' }} value={value} onChange={e => onChange(e.target.value)} />
+//       : value
+//     }
+//   </div>
+// )
 
-export const columns:ColumnProps<Article>[] = [
+// function renderColumns(text, record, column) {
+//   return (
+//     <EditableCell
+//       editable={record.editable}
+//       value={text}
+//       onChange={value => this.handleChange(value, record._id, column)}
+//     />
+//   )
+// }
+export const columns:ColumnProps<Tags>[] = [
   {
     title: '#',
     width: 50,
     key: 'tindex',
-    render: (text, record, dataIndex) => <span>{dataIndex}</span>
+    render: (text, record, dataIndex) => <span>{dataIndex + 1}</span>
   },
   {
     title: '标签名',
-    dataIndex: 'name',
     width: 500,
-    key: 'name'
+    key: 'name',
+    render: (text, record, dataIndex) => {
+      console.log(text, record, dataIndex)
+      return <div>1</div>
+    }
   },
   {
     title: '描述',
-    key: 'address',
-    dataIndex: 'address'
+    key: 'descript'
   },
   {
     title: '操作',
@@ -42,27 +60,5 @@ export const columns:ColumnProps<Article>[] = [
         <a href="javascript(void 0)">删除</a>
       </div>
     )
-  }
-]
-
-
-export const data:Article[] = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park'
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park'
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park'
   }
 ]
