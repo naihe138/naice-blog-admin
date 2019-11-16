@@ -1,0 +1,12 @@
+.btnBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .ant-btn {
+    padding: 0 5px;
+    height: 20px;
+  }
+  .ant-divider {
+    height: 12px;
+  }
+}

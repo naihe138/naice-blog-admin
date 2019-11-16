@@ -6,7 +6,6 @@ type TittleProps = {
 }
 
 const PageLayout:FunctionComponent<TittleProps> = props => {
-  console.log(props)
   return (
     <>
       <HeaderTittle title={props.title} />
