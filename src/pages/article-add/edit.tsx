@@ -1,19 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MarkdownIt from 'markdown-it'
 
 const md = new MarkdownIt()
+interface articleProps {
+  content: string,
+  editChange: any
+}
 
-export default function Edit () {
+export default function Edit (props: articleProps) {
   let viewRef = React.useRef<HTMLDivElement>(null)
   let textareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if(viewRef && viewRef.current) {
-      viewRef.current.innerHTML = md.render(e.currentTarget.value)
+      const edit = md.render(e.currentTarget.value)
+      viewRef.current.innerHTML = edit
+      props.editChange(e.currentTarget.value, edit)
     }
   }
+  useEffect(() => {
+    if(viewRef && viewRef.current) {
+      const edit = md.render(props.content)
+      viewRef.current.innerHTML = edit
+    }
+  }, [props.content])
   return (
     <section className="edit">
       <div className="leftbox box">
-        <textarea placeholder="请输入文章内容，md格式" onChange={textareaChange}></textarea>
+        <textarea value={props.content} placeholder="请输入文章内容，md格式" onChange={textareaChange}></textarea>
       </div>
       <div className="rightbox box" ref={viewRef}></div>
     </section>

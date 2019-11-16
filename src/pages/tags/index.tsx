@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Table, Input } from 'antd'
 import { columns } from './article-config'
 import PageLayout from '../../common/components/page-layout'
-import { fetchTag, editeTag, delTag } from './server'
+import { fetchTag, editeTag, delTag } from '../../utils/api'
 import { Operate } from './oprations'
 import './index.scss'
 

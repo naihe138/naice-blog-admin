@@ -2,7 +2,7 @@ import React from 'react'
 import { Form, Input, Button } from 'antd'
 import { FormComponentProps } from 'antd/es/form'
 import './index.scss'
-import { addTag } from './server'
+import { addTag } from '../../utils/api'
 
 interface TagsProps<T= any> extends FormComponentProps<T> {
   history?: any

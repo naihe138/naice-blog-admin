@@ -19,17 +19,17 @@ export const menuConfig:menuType[] = [
       },
       {
         title: '添加文章',
-        key: 'add-article',
-        path: '/add-article'
+        key: 'article-add',
+        path: '/article-add'
       },
       {
         title: '草稿箱',
-        key: 'draft',
-        path: '/draft'
+        key: 'article-draft',
+        path: '/article-draft'
       },
       {
         title: '文章归类',
-        key: 'classify',
+        key: 'article-classify',
         path: '/article-classify'
       }
     ]
@@ -41,13 +41,13 @@ export const menuConfig:menuType[] = [
     children: [
       {
         title: '全部标签',
-        key: 'all-tags',
+        key: 'tags-all',
         path: '/tags'
       },
       {
         title: '新增标签',
-        key: 'add-tags',
-        path: '/add-tag'
+        key: 'tags-add',
+        path: '/tags-add'
       }
     ]
   },
@@ -58,13 +58,13 @@ export const menuConfig:menuType[] = [
     children: [
       {
         title: '全部留言',
-        key: 'all-message',
+        key: 'message-all',
         path: '/message'
       },
       {
         title: '新增留言',
-        key: 'add-message',
-        path: '/add-message'
+        key: 'message-add',
+        path: '/message-add'
       }
     ]
   },
@@ -75,8 +75,8 @@ export const menuConfig:menuType[] = [
     children: [
       {
         title: '文章评论',
-        key: 'article-discuss',
-        path: '/comments'
+        key: 'discuss-article',
+        path: '/discuss'
       }
     ]
   },
@@ -87,13 +87,13 @@ export const menuConfig:menuType[] = [
     children: [
       {
         title: '全部项目',
-        key: 'all-project',
+        key: 'project-all',
         path: '/project'
       },
       {
         title: '新增项目',
-        key: 'add-project',
-        path: '/add-project'
+        key: 'project-add',
+        path: '/project-add'
       }
     ]
   },
@@ -109,8 +109,8 @@ export const menuConfig:menuType[] = [
       },
       {
         title: '新增音乐',
-        key: 'add-music',
-        path: '/add-music'
+        key: 'music-add',
+        path: '/music-add'
       }
     ]
   }

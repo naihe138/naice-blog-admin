@@ -1,23 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Menu, Icon } from 'antd'
 import { menuConfig, menuType } from './menu-config'
-import { RouterProps } from 'react-router'
+import { RouteProps, RouterProps } from 'react-router'
 // import { ClickParam } from 'antd/es/menu/index.d'
 const { SubMenu } = Menu
 interface menuProps{
   collapsed: boolean
 }
-export default function Munu(props: (menuProps & RouterProps)) {
+
+export default function Munu(props: (menuProps & RouteProps & RouterProps)) {
   const { collapsed } = props
-  let click = (path?: string) => {
+  const [openKey, setOpenKey] = useState([''])
+  const click = (path?: string) => {
     if (path) {
       props.history.push(path)
     }
   }
+  const open = (path: string) => {
+    setOpenKey([path])
+  }
+  useEffect(() => {
+    if (props.location) {
+      const arr = props.location.pathname.substring(1).split('-')
+      setOpenKey([arr[0]])
+    }
+  }, [])
   return (
     <Menu
       theme='dark'
-      defaultOpenKeys={['article']}
+      openKeys={openKey}
       mode="inline"
       className="menu"
       inlineCollapsed={collapsed}
@@ -33,6 +44,7 @@ export default function Munu(props: (menuProps & RouterProps)) {
                   <span>{menu.title}</span>
                 </span>
               }
+              onTitleClick={() => open(menu.key)}
             >
               {
                 menu.children ?

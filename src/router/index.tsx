@@ -37,7 +37,7 @@ export const routes = [
         component: ArticleList
       },
       {
-        path: '/add-article',
+        path: '/article-add',
         component: AddArticle
       },
       {
@@ -45,15 +45,15 @@ export const routes = [
         component: ArticleClassify
       },
       {
-        path: '/comments',
+        path: '/article-comments',
         component: ArticleComments
       },
       {
-        path: '/draft',
+        path: '/article-draft',
         component: ArticleDraft
       },
       {
-        path: '/add-message',
+        path: '/message-add',
         component: AddMessage
       },
       {
@@ -61,7 +61,7 @@ export const routes = [
         component: MessageList
       },
       {
-        path: '/add-music',
+        path: '/music-add',
         component: MusicAdd
       },
       {
@@ -69,7 +69,7 @@ export const routes = [
         component: MusicList
       },
       {
-        path: '/add-project',
+        path: '/project-add',
         component: ProjectAdd
       },
       {
@@ -81,11 +81,11 @@ export const routes = [
         component: Tags
       },
       {
-        path: '/add-tag',
+        path: '/tags-add',
         component: TagAdd
       },
       {
-        path: '*',
+        path: '/',
         component: Home
       }
     ]

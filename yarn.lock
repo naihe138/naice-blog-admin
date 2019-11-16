@@ -1789,6 +1789,11 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
+ant@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/ant/download/ant-0.2.0.tgz#f4abbe0d6f9cc4f63db5d3a557450288a0f0a394"
+  integrity sha1-9Ku+DW+cxPY9tdOlV0UCiKDwo5Q=
+
 antd@^3.24.2:
   version "3.25.0"
   resolved "https://registry.npm.taobao.org/antd/download/antd-3.25.0.tgz?cache=0&sync_timestamp=1573013928754&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fantd%2Fdownload%2Fantd-3.25.0.tgz#d1d609038b3d17ddf9dfc1c3e3a9186d1c53849d"
