@@ -1,21 +1,23 @@
-import { Button } from 'antd'
 import React from 'react'
+import { Button, message } from 'antd'
 import BaseInfo from './base-info'
 import Edit from './edit'
 import './index.scss'
 import HeaderTittle from '../../common/components/header-title'
 import { addArticle } from '../../utils/api'
-export default function AddArticle () {
+export default function AddArticle (props: any) {
   let myform: any = null
   let content: string = ''
   let editContent: string = ''
   function submit () {
     myform.props.form.validateFields(async (err: any, values: any) => {
       if (!err) {
-        console.log('Received values of form: ', values)
         if (content) {
           const { data } = await addArticle({...values, content, editContent})
-          console.log(data)
+          if (data.code) {
+            message.success(data.message)
+            props.history.push('/article')
+          }
         }
       }
     })

@@ -49,7 +49,7 @@ class BaseInfo extends React.Component<FormComponentProps> {
           <Col span={14}>
             <Form.Item label="标签">
               {
-                getFieldDecorator('tags', {
+                getFieldDecorator('tag', {
                   rules: [{ required: true, message: '请选择标签!' }],
                 })(
                   <Select

@@ -1,71 +1,72 @@
 import React from 'react'
 import { Divider, Tag } from 'antd'
 import { ColumnProps } from 'antd/es/table'
-
+import dayjs from 'dayjs'
 export interface recordType{
   name: string
 }
 
 export interface Article {
-  key: string,
-  name: string,
-  age: number,
-  address: string,
-  tags: string[],
+  _id: string,
+  title: string,
+  tag: string[],
 }
-
+const colorArr = ['magenta', 'geekblue', 'red', 'volcano', 'orange', 'gold', 'lime', 'green', 'cyan', 'purple']
 export const columns:ColumnProps<Article>[] = [
   {
     title: '#',
     width: 50,
     key: 'tindex',
-    render: (text, record, dataIndex) => <span>{dataIndex}</span>
+    render: (text, record, dataIndex) => <span>{dataIndex+1}</span>
   },
   {
     title: '标题',
-    dataIndex: 'name',
-    width: 500,
-    key: 'name',
-    render: text => <a href="javascript(void 0)">{text}</a>
+    width: 380,
+    dataIndex: 'title',
+    key: 'title'
   },
   {
     title: '标签',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (tags:string[]) => (
-      <span>
-        {tags.map(tag => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          )
-        })}
-      </span>
-    )
+    key: 'tag',
+    width: 250,
+    render: (record) => {
+      return (
+        <span>
+          {record.tag.map((item:any, index: number) => {
+            return (
+              <Tag color={colorArr[index] || 'red'} key={item._id}>
+                {item.name}
+              </Tag>
+            )
+          })}
+        </span>
+      )
+    }
   },
-  // {
-  //   title: '时间',
-  //   dataIndex: 'time',
-  //   width: 130,
-  //   key: 'time',
-  //   render: text => <a>{text}</a>
-  // },
+  {
+    title: '更新日期',
+    width: 250,
+    dataIndex: 'update_at',
+    key: 'update_at',
+    render: (text) => <div>{dayjs(text).format('YYYY-MM-DD HH:mm:ss')}</div> 
+  },
+  {
+    title: '信息',
+    dataIndex: 'meta',
+    key: 'meta',
+    render: (meta) => <div>{`评论：${meta.comments}、浏览：${meta.views}、喜欢：${meta.likes}`}</div>
+  },
   {
     title: '编辑',
     key: 'action',
     width: 150,
     render: (text, record) => (
-      <div>
-        <a href="javascript(void 0)">查看</a>
+      <div className="t_btn">
+        <span>查看</span>
         <Divider type="vertical" />
-        <a href="javascript(void 0)">修改</a>
+        <span>修改</span>
         <Divider type="vertical" />
-        <a href="javascript(void 0)">删除</a>
+        <span>删除</span>
       </div>
     )
   }
@@ -74,24 +75,8 @@ export const columns:ColumnProps<Article>[] = [
 
 export const data:Article[] = [
   {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    _id: '1',
+    title: 'John Brown',
+    tag: ['nice', 'developer']
   }
 ]

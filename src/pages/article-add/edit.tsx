@@ -11,9 +11,9 @@ export default function Edit (props: articleProps) {
   let viewRef = React.useRef<HTMLDivElement>(null)
   let textareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if(viewRef && viewRef.current) {
-      const edit = md.render(e.currentTarget.value)
-      viewRef.current.innerHTML = edit
-      props.editChange(e.currentTarget.value, edit)
+      const editStr = md.render(e.currentTarget.value)
+      viewRef.current.innerHTML = editStr
+      props.editChange(e.currentTarget.value, editStr)
     }
   }
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function Edit (props: articleProps) {
   return (
     <section className="edit">
       <div className="leftbox box">
-        <textarea value={props.content} placeholder="请输入文章内容，md格式" onChange={textareaChange}></textarea>
+        <textarea defaultValue={props.content} placeholder="请输入文章内容，md格式" onChange={textareaChange}></textarea>
       </div>
       <div className="rightbox box" ref={viewRef}></div>
     </section>
