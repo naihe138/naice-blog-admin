@@ -2,13 +2,22 @@ import React from 'react'
 import { Form, Input, Button } from 'antd'
 import { FormComponentProps } from 'antd/es/form'
 import './index.scss'
-function AddTag (props: FormComponentProps) {
+import { addTag } from '../../utils/api'
+
+interface TagsProps<T= any> extends FormComponentProps<T> {
+  history?: any
+}
+
+function AddTag (props: TagsProps) {
   const form = props.form
   function handleSubmit (e: React.FormEvent) {
     e.preventDefault()
-    form.validateFields((err, values) => {
+    form.validateFields(async (err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values)
+        const res = await addTag(values)
+        if (res.data.code) {
+          props.history.push('/tags')
+        }
       }
     })
   }
@@ -20,14 +29,14 @@ function AddTag (props: FormComponentProps) {
     <Form onSubmit={handleSubmit} layout='horizontal' {...formItemLayout} className="addtag">
       <Form.Item label="标签名">
         {
-          form.getFieldDecorator('tagname', {
+          form.getFieldDecorator('name', {
             rules: [{ required: true, message: '请输入标签名!' }]
           })(<Input  placeholder="请输入标签名" />)
         }
       </Form.Item>
       <Form.Item label="描述">
         {
-          form.getFieldDecorator('tagdescrib', {
+          form.getFieldDecorator('descript', {
             rules: [{ required: true, message: '请填写描述!' }]
           })(<Input placeholder="请填写描述" />)
         }
