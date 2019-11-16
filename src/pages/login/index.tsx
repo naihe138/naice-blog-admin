@@ -50,6 +50,7 @@ function LoginForm (props: (FormComponentProps & RouterProps)) {
           </Button>
         </Form.Item>
       </Form>
+      <div className="loginMask"></div>
     </div>
   )
 }

@@ -8,6 +8,12 @@ export interface menuType {
 
 export const menuConfig:menuType[] = [
   {
+    title: 'HOME',
+    key: 'home',
+    icon: 'home',
+    path: '/'
+  },
+  {
     title: '文章管理',
     key: 'article',
     icon: 'edit',

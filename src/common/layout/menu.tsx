@@ -17,30 +17,36 @@ export default function Munu(props: (menuProps & RouterProps)) {
   return (
     <Menu
       theme='dark'
-      defaultOpenKeys={['article']}
+      defaultSelectedKeys={['home']}
+      defaultOpenKeys={['home']}
       mode="inline"
       className="menu"
       inlineCollapsed={collapsed}
     >
       {
         menuConfig.map((menu: menuType) => {
-          return (
-            <SubMenu
-              key={menu.key}
-              title={
-                <span>
-                  <Icon type={menu.icon} />
-                  <span>{menu.title}</span>
-                </span>
-              }
-            >
-              {
-                menu.children ?
-                menu.children.map((item: menuType) => <Menu.Item key={item.key} onClick={() => click(item.path)}>{item.title}</Menu.Item>) :
-                null
-              }
-            </SubMenu>
-          )
+          if (!menu.children) {
+            return <Menu.Item key={menu.key} onClick={() => click(menu.path)}>
+              <Icon type={menu.icon} />
+              <span>{menu.title}</span>
+            </Menu.Item>
+          } else {
+            return (
+              <SubMenu
+                key={menu.key}
+                title={
+                  <span>
+                    <Icon type={menu.icon} />
+                    <span>{menu.title}</span>
+                  </span>
+                }
+              >
+                {
+                  menu.children.map((item: menuType) => <Menu.Item key={item.key} onClick={() => click(item.path)}>{item.title}</Menu.Item>)
+                }
+              </SubMenu>
+            )
+          }
         })
       }
     </Menu>
