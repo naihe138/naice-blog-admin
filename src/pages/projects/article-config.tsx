@@ -6,15 +6,7 @@ export interface recordType{
   name: string
 }
 
-export interface Article {
-  key: string,
-  name: string,
-  age: number,
-  address: string,
-  tags: string[],
-}
-
-export const columns:ColumnProps<Article>[] = [
+export const columns:ColumnProps<any>[] = [
   {
     title: '#',
     width: 50,
@@ -23,61 +15,30 @@ export const columns:ColumnProps<Article>[] = [
   },
   {
     title: '标题',
-    dataIndex: 'name',
+    dataIndex: 'title',
     width: 300,
-    key: 'name',
+    key: 'title',
     render: text => <a href="javascript(void 0)">{text}</a>
   },
   {
     title: 'icon图标',
-    key: 'tags',
-    dataIndex: 'tags'
+    key: 'icon',
+    dataIndex: 'icon'
   },
   {
     title: '预览地址',
-    key: 'tags',
-    dataIndex: 'tags'
+    key: 'view',
+    dataIndex: 'view'
   },
   {
     title: 'github地址',
-    key: 'tags',
-    dataIndex: 'tags'
+    key: 'github',
+    dataIndex: 'github'
   },
   {
     title: '编辑',
-    key: 'action',
-    width: 150,
-    render: (text, record) => (
-      <div className="btnbox">
-        <a href="javascript(void 0)">编辑</a>
-        <Divider type="vertical" />
-        <a href="javascript(void 0)">删除</a>
-      </div>
-    )
-  }
-]
-
-
-export const data:Article[] = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    key: 'operation',
+    dataIndex: 'operation',
+    width: 150
   }
 ]

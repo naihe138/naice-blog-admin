@@ -82,7 +82,7 @@ export const menuConfig:menuType[] = [
       {
         title: '文章评论',
         key: 'discuss-article',
-        path: '/discuss-article'
+        path: '/discuss'
       }
     ]
   },

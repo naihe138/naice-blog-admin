@@ -34,29 +34,33 @@ const Comments = () => {
       cancel()
     })()
   }, [refresh])
+  // 保存
   async function save (record:any) {
     if (editPrams.index === null) return
     const {data} = await editeHero(record._id, {state: editPrams.state})
     setRefresh(refresh+1)
     message.success(data.message)
   }
+  // 编辑
   function edit (index:number) {
     editPrams.index = null
     setEditingKey(index)
   }
+  // 取消
   function cancel () {
     setEditingKey('')
   }
+  // 删除
   async function del (record:any) {
     const {data} = await delHero(record._id)
     setRefresh(refresh+1)
     message.success(data.message)
   }
-
+  // 是否编辑行
   function isEditing (index:number) {
     return index === editingKey
   }
-
+  // 自定义列内容
   const tableColumns = columns.map(col => {
     if (col.editable) {
       return {

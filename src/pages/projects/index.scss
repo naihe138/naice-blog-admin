@@ -1,5 +1,5 @@
 .btnbox {
-  button {
-    display: inline;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
