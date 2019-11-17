@@ -1,18 +1,18 @@
 import React from 'react'
-import { Divider, Tag } from 'antd'
+import { Tag } from 'antd'
 import { ColumnProps } from 'antd/es/table'
 import dayjs from 'dayjs'
 export interface recordType{
   name: string
 }
 
-export interface Article {
-  _id: string,
-  title: string,
-  tag: string[],
+interface Article<T> extends ColumnProps<T> {
+  _id?: string
+  tag?: string[]
 }
+
 const colorArr = ['magenta', 'geekblue', 'red', 'volcano', 'orange', 'gold', 'lime', 'green', 'cyan', 'purple']
-export const columns:ColumnProps<Article>[] = [
+export const columns:Array<Article<any>> = [
   {
     title: '#',
     width: 50,
@@ -58,25 +58,8 @@ export const columns:ColumnProps<Article>[] = [
   },
   {
     title: '编辑',
-    key: 'action',
-    width: 150,
-    render: (text, record) => (
-      <div className="t_btn">
-        <span>查看</span>
-        <Divider type="vertical" />
-        <span>修改</span>
-        <Divider type="vertical" />
-        <span>删除</span>
-      </div>
-    )
-  }
-]
-
-
-export const data:Article[] = [
-  {
-    _id: '1',
-    title: 'John Brown',
-    tag: ['nice', 'developer']
+    key: 'operation',
+    dataIndex: 'operation',
+    width: 150
   }
 ]

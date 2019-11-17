@@ -4,7 +4,8 @@ import MarkdownIt from 'markdown-it'
 const md = new MarkdownIt()
 interface articleProps {
   content: string,
-  editChange: any
+  editChange: any,
+  article?: any
 }
 
 export default function Edit (props: articleProps) {
