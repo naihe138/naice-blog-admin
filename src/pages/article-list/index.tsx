@@ -13,7 +13,7 @@ const ArticleList = (props:RouteComponentProps) => {
   useEffect(() => {
     (async () => {
       setLoading(true)
-      const { data } = await getArts({current_page: page.current})
+      const { data } = await getArts({current_page: page.current, state: 1})
       if (data.code) {
         const { list, pagination } = data.result
         setList(list || [])

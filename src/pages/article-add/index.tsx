@@ -17,16 +17,31 @@ export default function AddArticle (props: RouteComponentProps) {
   const [title, setTitle] = useState('')
   const query = useQuery()
   let location = useLocation()
-  function submit () {
+  function submit (state: number) {
     myform.props.form.validateFields(async (err: any, values: any) => {
       if (!err && acontent.content) {
-        const { data } = await addArticle({...values, ...acontent})
-        if (data.code) {
-          message.success(data.message)
-          props.history.push('/article')
+        let id = query.get('id')
+        if (id) {
+          edit(values, id)
+        } else {
+          add(values, state)
         }
       }
     })
+  }
+  async function add (values: any, state:number) {
+    const { data } = await addArticle({...values, ...acontent, state})
+    if (data.code) {
+      message.success(data.message)
+      props.history.push('/article')
+    }
+  }
+  async function edit (values: any, id: string) {
+    const { data } = await editeArt(id, {...values, ...acontent})
+    if (data.code) {
+      message.success(data.message)
+      props.history.push('/article')
+    }
   }
   const editChange = (c: string, e: string) => {
     setAcontent({content: c, editContent: e})
@@ -42,11 +57,13 @@ export default function AddArticle (props: RouteComponentProps) {
           setArticle(data.result)
           setEditContent(data.result.content)
           setTitle('编辑文章')
+          setAcontent({content: data.result.content, editContent: data.result.editContent})
         }
       } else {
         setArticle({})
         setEditContent('')
         setTitle('添加文章')
+        setAcontent({content: '', editContent: ''})
       }
     })()
   }, [location])
@@ -58,9 +75,9 @@ export default function AddArticle (props: RouteComponentProps) {
         <BaseInfo wrappedComponentRef={saveFormRef} article={article} />
         <Edit content={editContent} editChange={editChange} />
         <div className='btnbox'>
-          <Button type='primary' style={{width: '100px'}} onClick={submit}>提 交</Button>
+          <Button type='primary' style={{width: '100px'}} onClick={() => submit(1)}>提 交</Button>
           <Button type="primary" style={{width: '100px', marginLeft: '20px'}}>预览</Button>
-          <Button type="danger" style={{width: '100px', marginLeft: '20px'}}>存草稿</Button>
+          <Button type="danger" style={{width: '100px', marginLeft: '20px'}} onClick={() => submit(2)}>存草稿</Button>
         </div>
       </div>
     </>
