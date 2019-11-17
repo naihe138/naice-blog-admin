@@ -73,7 +73,7 @@ const Tag = () => {
   const components = { body: { cell: EditCell } }
   return <>
     <PageLayout title='标签列表'>
-      <Table components={components} columns={tableColumns} dataSource={tableData} bordered size='middle' rowKey='name' />
+      <Table components={components} columns={tableColumns} dataSource={tableData} bordered size='middle' rowKey='_id' />
     </PageLayout>
   </>
 }

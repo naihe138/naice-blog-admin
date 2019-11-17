@@ -45,7 +45,7 @@ export const routes = [
         component: ArticleClassify
       },
       {
-        path: '/article-comments',
+        path: '/discuss',
         component: ArticleComments
       },
       {

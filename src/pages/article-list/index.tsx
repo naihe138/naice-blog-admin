@@ -21,7 +21,7 @@ const ArticleList = (props:RouteComponentProps) => {
       }
       setLoading(false)
     })()
-  }, [load])
+  }, [load, page])
   // 编辑
   async function edit (id: string) {
     props.history.push(`/article-add?id=${id}`)

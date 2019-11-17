@@ -24,7 +24,7 @@ export default function Munu(props: (menuProps & RouteProps & RouterProps)) {
       const arr = props.location.pathname.substring(1).split('-')
       setOpenKey([arr[0]])
     }
-  }, [])
+  }, [props.location])
   return (
     <Menu
       theme='dark'

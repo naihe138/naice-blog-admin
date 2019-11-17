@@ -1,20 +1,12 @@
 import React from 'react'
-import { Divider } from 'antd'
 import { ColumnProps } from 'antd/es/table'
 
-export interface recordType{
-  name: string
+interface Comments<T> extends ColumnProps<T> {
+  _id?: string
+  editable?: boolean
 }
 
-export interface Article {
-  key: string,
-  name: string,
-  age: number,
-  address: string,
-  tags: string[],
-}
-
-export const columns:ColumnProps<Article>[] = [
+export const columns:Comments<any>[] = [
   {
     title: '#',
     width: 50,
@@ -23,66 +15,40 @@ export const columns:ColumnProps<Article>[] = [
   },
   {
     title: '留言内容',
-    dataIndex: 'name',
+    dataIndex: 'content',
     width: 300,
-    key: 'name',
-    render: text => <a href="javascript(void 0)">{text}</a>
+    key: 'content'
   },
   {
-    title: 'ip',
-    key: 'tags',
-    dataIndex: 'tags'
+    title: 'ip地址',
+    key: 'ip',
+    dataIndex: 'ip',
+    width: 200,
   },
   {
     title: '留言邮箱',
-    key: 'tags',
-    dataIndex: 'tags'
+    key: 'author.email',
+    dataIndex: 'author.email',
+    width: 200,
+    render: (text, record, dataIndex) => <span>{record.author.email}</span>
   },
   {
     title: 'web地址',
-    key: 'tags',
-    dataIndex: 'tags'
+    key: 'author.site',
+    dataIndex: 'author.site',
+    width: 300,
+    render: (text, record, dataIndex) => <span>{record.author.site}</span>
   },
   {
     title: '状态',
-    key: 'tags',
-    dataIndex: 'tags'
+    key: 'state',
+    dataIndex: 'state',
+    editable: true
   },
   {
     title: '编辑',
-    key: 'action',
-    width: 150,
-    render: (text, record) => (
-      <div className="btnbox">
-        <a href="javascript(void 0)">编辑</a>
-        <Divider type="vertical" />
-        <a href="javascript(void 0)">删除</a>
-      </div>
-    )
-  }
-]
-
-
-export const data:Article[] = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    key: 'operation',
+    dataIndex: 'operation',
+    width: 150
   }
 ]

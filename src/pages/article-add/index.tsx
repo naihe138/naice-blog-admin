@@ -66,7 +66,7 @@ export default function AddArticle (props: RouteComponentProps) {
         setAcontent({content: '', editContent: ''})
       }
     })()
-  }, [location])
+  }, [location, query])
 
   return (
     <>
