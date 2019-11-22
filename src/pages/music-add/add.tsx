@@ -2,13 +2,18 @@ import React from 'react'
 import { Form, Input, Button, Upload, Icon, message } from 'antd'
 import { FormComponentProps } from 'antd/es/form'
 import { UploadChangeParam } from 'antd/es/upload'
-import { uploadConfig,  } from '../../utils/api'
+import { uploadConfig, addMusic } from '../../utils/api'
+import { useQuery } from '../../utils/index'
 
 import './index.scss'
 const { TextArea } = Input
-
-function AddMusic (props: FormComponentProps) {
+const formItemLayout = {
+  labelCol: { span: 5 },
+  wrapperCol: { span: 19 },
+}
+function AddMusic (props: any) {
   const form = props.form
+  const query = useQuery()
   const posterUploadConfig = {
     name: 'file',
     ...uploadConfig(),
@@ -33,18 +38,31 @@ function AddMusic (props: FormComponentProps) {
       }
     }
   }
+
   function handleSubmit (e: React.FormEvent) {
     e.preventDefault()
-    form.validateFields((err, values) => {
+    form.validateFields((err: any, values:any) => {
       if (!err) {
-        console.log('Received values of form: ', values)
+        let id = query.get('id')
+        id ? edit(values, id) : add(values)
       }
     })
   }
-  
-  const formItemLayout = {
-    labelCol: { span: 5 },
-    wrapperCol: { span: 19 },
+
+  async function add (values: any) {
+    const {data} = await addMusic(values)
+    if (data.code) {
+      message.success(data.message)
+      props.history.push('/project')
+    }
+  }
+
+  async function edit (values: any, id:string) {
+    // const { data } = await editeProject(id, values)
+    // if (data.code) {
+    //   message.success(data.message)
+    //   props.history.push('/project')
+    // }
   }
 
   return (
