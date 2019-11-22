@@ -21,7 +21,7 @@ export const columns:Array<Article<any>> = [
   },
   {
     title: '标题',
-    width: 380,
+    width: 280,
     dataIndex: 'title',
     key: 'title'
   },

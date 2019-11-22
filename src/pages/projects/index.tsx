@@ -11,7 +11,7 @@ function EditCell (props: any) {
   return <td>{col && col.dataIndex === 'operation' ? <Operate {...props} /> : children}</td>
 }
 
-const Projects = () => {
+const Projects = (props:any) => {
   const [tableData, setTableData] = useState([]) 
   const [refresh, setRefresh] = useState(1)
   const [page, setPage] = useState({ current: 1, total: 0 })
@@ -23,11 +23,11 @@ const Projects = () => {
     })()
   }, [refresh])
 
-  function edit (record:any) {
-    console.log(record._id)
+  function edit (id:string) {
+    props.history.push(`/project-add?id=${id}`)
   }
-  async function del (record:any) {
-    const {data} = await delProject(record._id)
+  async function del (id:string) {
+    const {data} = await delProject(id)
     setRefresh(refresh+1)
     setPage({ current: 1, total: 0 })
     message.success(data.message)
