@@ -3,7 +3,7 @@ import { Divider, Button } from 'antd'
 export function Operate (props: any) {
   const { editing, rowIndex, record} = props
   return (
-    <div className="btnbox">
+    <div className="btnbox1">
       {
         editing ? (
           <>

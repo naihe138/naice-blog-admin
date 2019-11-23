@@ -17,7 +17,7 @@ const ProjectAdd = loadable(() => import('../pages/project-add'))
 const Projects = loadable(() => import('../pages/projects'))
 const Tags = loadable(() => import('../pages/tags'))
 const TagAdd = loadable(() => import('../pages/tag-add'))
-const Home = () => <h1>HOEM</h1>
+const Home = loadable(() => import('../pages/home'))
 export interface routeType {
   path: string,
   component: React.SFC
