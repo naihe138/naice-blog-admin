@@ -1,5 +1,4 @@
 import React from 'react'
-import { Divider } from 'antd'
 import { ColumnProps } from 'antd/es/table'
 
 export interface recordType{
