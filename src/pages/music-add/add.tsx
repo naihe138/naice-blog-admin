@@ -1,8 +1,7 @@
 import React from 'react'
 import { Form, Input, Button, Upload, Icon, message } from 'antd'
-import { FormComponentProps } from 'antd/es/form'
 import { UploadChangeParam } from 'antd/es/upload'
-import { uploadConfig, addMusic } from '../../utils/api'
+import { uploadConfig, addMusic, editeMusic } from '../../utils/api'
 import { useQuery } from '../../utils/index'
 
 import './index.scss'
@@ -53,16 +52,16 @@ function AddMusic (props: any) {
     const {data} = await addMusic(values)
     if (data.code) {
       message.success(data.message)
-      props.history.push('/project')
+      props.history.push('/music')
     }
   }
 
   async function edit (values: any, id:string) {
-    // const { data } = await editeProject(id, values)
-    // if (data.code) {
-    //   message.success(data.message)
-    //   props.history.push('/project')
-    // }
+    const { data } = await editeMusic(id, values)
+    if (data.code) {
+      message.success(data.message)
+      props.history.push('/music')
+    }
   }
 
   return (
