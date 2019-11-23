@@ -1,5 +1,12 @@
-.btnbox {
+.music-list .btnbox {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
+}
+
+.music-list .url {
+  width: 320px;
+  overflow: hidden;
+  display: inline-block;
 }

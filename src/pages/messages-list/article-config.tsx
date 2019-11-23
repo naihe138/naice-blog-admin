@@ -43,12 +43,13 @@ export const columns:Comments<any>[] = [
     title: '状态',
     key: 'state',
     dataIndex: 'state',
-    editable: true
+    editable: true,
+    width: 100,
   },
   {
     title: '编辑',
     key: 'operation',
     dataIndex: 'operation',
-    width: 150
+    width: 100
   }
 ]

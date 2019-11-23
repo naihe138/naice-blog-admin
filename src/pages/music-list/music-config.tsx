@@ -14,7 +14,7 @@ export const columns:ColumnProps<any>[] = [
     dataIndex: 'title',
     width: 160,
     key: 'title',
-    render: text => <a href="javascript(void 0)">{text}</a>
+    render: (text, record, dataIndex) => <a href={record.url} target="_blank">{text}</a>
   },
   {
     title: '歌手',
@@ -27,13 +27,14 @@ export const columns:ColumnProps<any>[] = [
     key: 'poster',
     width: 120,
     dataIndex: 'poster',
-    render: text => <a href={text} target="_brank"><img width="100" src={text} /></a>
+    render: text => <a href={text} target="_brank"><img width="50" src={text} /></a>
   },
   {
     title: '歌曲链接',
     key: 'url',
     dataIndex: 'url',
-    render: text => <a href={text} target="_brank">{text}</a>
+    width: 320,
+    render: text => <a href={text} target="_blank" className="url">{text}</a>
   },
   {
     title: '操作',

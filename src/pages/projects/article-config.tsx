@@ -18,12 +18,15 @@ export const columns:ColumnProps<any>[] = [
     dataIndex: 'title',
     width: 300,
     key: 'title',
-    render: text => <a href="javascript(void 0)">{text}</a>
+    render: (text, record, dataIndex) => {
+      return <a href={record.github} target="_blank">{text}</a>
+    }
   },
   {
     title: 'icon图标',
     key: 'icon',
-    dataIndex: 'icon'
+    dataIndex: 'icon',
+    width: 200,
   },
   {
     title: '预览地址',

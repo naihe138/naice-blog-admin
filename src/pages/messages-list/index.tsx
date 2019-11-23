@@ -76,7 +76,13 @@ const Comments = () => {
   const components = { body: { cell: EditCell } }
   return <>
     <PageLayout title='评论管理'>
-      <Table components={components} columns={tableColumns} dataSource={tableData} bordered size='middle' rowKey='_id' />
+      <Table components={components}
+        className="messages"
+        columns={tableColumns}
+        dataSource={tableData}
+        bordered
+        size='middle'
+        rowKey='_id' />
     </PageLayout>
   </>
 }

@@ -43,6 +43,7 @@ const Projects = (props:any) => {
   const components = { body: { cell: EditCell } }
   return <PageLayout title='音乐管理'>
     <Table components={components}
+      className="music-list"
       columns={tableColumns}
       dataSource={tableData}
       bordered
