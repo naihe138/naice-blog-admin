@@ -68,10 +68,10 @@ export const addMusic = (params = {}) => http.put('music/add', { ...params })
 // 获取音乐
 export const fetchMusic = (params = {}) => http.get('music/get', { params })
 
-// 删除留言墙
+// 删除音乐
 export const delMusic = (id: string) => http.delete(`music/delect/${id}`)
 
-// 编辑留言墙
+// 编辑留音乐
 export const editeMusic = (id: string, params = {}) => http.post(`music/edite/${id}`, {...params})
 
 // 上传配置

@@ -70,6 +70,7 @@ function AddMusic (props: any) {
       <Form.Item label="歌名">
         {
           form.getFieldDecorator('title', {
+            initialValue: props.music.title || '',
             rules: [{ required: true, message: '请输入歌名!' }]
           })(<Input  placeholder="请输入歌名" />)
         }
@@ -77,6 +78,7 @@ function AddMusic (props: any) {
       <Form.Item label="歌手">
         {
           form.getFieldDecorator('name', {
+            initialValue: props.music.name || '',
             rules: [{ required: true, message: '请填写歌手!' }]
           })(<Input placeholder="请填写歌手" />)
         }
@@ -84,6 +86,7 @@ function AddMusic (props: any) {
       <Form.Item label="歌词">
         {
           form.getFieldDecorator('lyrics', {
+            initialValue: props.music.lyrics || '',
             rules: [{ required: true, message: '请填写歌词!' }]
           })(<TextArea rows={4} placeholder="请填写歌词" />)
         }
@@ -91,6 +94,7 @@ function AddMusic (props: any) {
       <Form.Item label="海报链接">
         {
           form.getFieldDecorator('poster', {
+            initialValue: props.music.poster || '',
             rules: [{ required: true, message: '请填写海报链接!' }]
           })(<Input placeholder="请填写海报链接" />)
         }
@@ -101,6 +105,7 @@ function AddMusic (props: any) {
       <Form.Item label="歌曲链接">
         {
           form.getFieldDecorator('url', {
+            initialValue: props.music.url || '',
             rules: [{ required: true, message: '请填写歌曲链接!' }]
           })(<Input placeholder="请填写歌曲链接" />)
         }
