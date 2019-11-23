@@ -81,27 +81,25 @@
 + ....
 
 
-#### Clone
+### Clone
+
 ````
 git clone git@github.com:naihe138/naice-blog-admin.git
-
 ````
 
-#### install
-````
-yarn
+### Install
 
 ````
-
-#### dev
-
+yarn --ignore-engines
 ````
 
-npm run start
+### Dev
 
 ````
+npm start
+````
 
-#### build
+### Build
 
 ````
 npm run build
