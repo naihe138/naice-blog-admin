@@ -25,7 +25,7 @@ function EditCell (props: any) {
 
 const Comments = () => {
   const [tableData, setTableData] = useState([]) 
-  const [editingKey, setEditingKey] = useState()
+  const [editingKey, setEditingKey] = useState(-1)
   const [refresh, setRefresh] = useState(1)
   useEffect(() => {
     (async () => {
@@ -45,7 +45,7 @@ const Comments = () => {
     setEditingKey(index)
   }
   function cancel () {
-    setEditingKey('')
+    setEditingKey(-1)
   }
   async function del (record:any) {
     const {data} = await delComment(record._id)
@@ -72,7 +72,7 @@ const Comments = () => {
   const components = { body: { cell: EditCell } }
   return <>
     <PageLayout title='评论管理'>
-      <Table components={components} columns={tableColumns} dataSource={tableData} bordered size='middle' rowKey='_id' />
+      <Table components={components} columns={tableColumns as any} dataSource={tableData} bordered size='middle' rowKey='_id' />
     </PageLayout>
   </>
 }

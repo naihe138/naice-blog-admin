@@ -1,5 +1,6 @@
-import React from 'react'
-import { Form, Input, Button, Upload, Icon, message } from 'antd'
+import React, { useState, useEffect } from 'react'
+import { Form, Input, Button, Upload, message } from 'antd'
+import { UploadOutlined } from '@ant-design/icons';
 import { UploadChangeParam } from 'antd/es/upload'
 import { uploadConfig, addMusic, editeMusic } from '../../utils/api'
 import { useQuery } from '../../utils/index'
@@ -11,7 +12,13 @@ const formItemLayout = {
   wrapperCol: { span: 19 },
 }
 function AddMusic (props: any) {
-  const form = props.form
+  const [music, setMusic] = useState<any>({
+    ...props.music
+  })
+  useEffect(() => {
+    setMusic({...props.music})
+    console.log(props.music)
+  }, [props.music])
   const query = useQuery()
   const posterUploadConfig = {
     name: 'file',
@@ -19,9 +26,7 @@ function AddMusic (props: any) {
     onChange(info:UploadChangeParam) {
       if (info.file.response && info.file.response.code) {
         message.success(info.file.response.message)
-        form.setFieldsValue({
-          poster: info.file.response.result
-        })
+        setMusic({...Object.assign(music, {poster: info.file.response.result})})
       }
     }
   }
@@ -30,26 +35,24 @@ function AddMusic (props: any) {
     ...uploadConfig(),
     onChange(info:UploadChangeParam) {
       if (info.file.response && info.file.response.code) {
-        message.success(info.file.response.message)
-        form.setFieldsValue({
-          url: info.file.response.result
-        })
+        setMusic({...Object.assign(music, {url: info.file.response.result})})
       }
     }
   }
 
-  function handleSubmit (e: React.FormEvent) {
-    e.preventDefault()
-    form.validateFields((err: any, values:any) => {
-      if (!err) {
-        let id = query.get('id')
-        id ? edit(values, id) : add(values)
-      }
-    })
+  function handleSubmit () {
+    let id = query.get('id')
+    id ? edit({
+      lyrics: music.lyrics,
+      name: music.name,
+      poster: music.poster,
+      title: music.title,
+      url: music.url
+    }, id) : add()
   }
 
-  async function add (values: any) {
-    const {data} = await addMusic(values)
+  async function add () {
+    const {data} = await addMusic(music)
     if (data.code) {
       message.success(data.message)
       props.history.push('/music')
@@ -64,52 +67,31 @@ function AddMusic (props: any) {
     }
   }
 
+  function inputChange(key: string, e: any) {
+    setMusic({...Object.assign(music, {[key]: e.target.value})})
+  }
+
   return (
-    <Form onSubmit={handleSubmit} layout='horizontal' {...formItemLayout} className="addProject">
-      <Form.Item label="歌名">
-        {
-          form.getFieldDecorator('title', {
-            initialValue: props.music.title || '',
-            rules: [{ required: true, message: '请输入歌名!' }]
-          })(<Input  placeholder="请输入歌名" />)
-        }
+    <Form onFinish={handleSubmit} layout='horizontal' {...formItemLayout} className="addProject">
+      <Form.Item label="歌名" rules={[{ required: true, message: '请输入歌名!' }]}>
+        <Input value={music.title} placeholder="请输入歌名" onChange={e => inputChange('title', e)} />
       </Form.Item>
-      <Form.Item label="歌手">
-        {
-          form.getFieldDecorator('name', {
-            initialValue: props.music.name || '',
-            rules: [{ required: true, message: '请填写歌手!' }]
-          })(<Input placeholder="请填写歌手" />)
-        }
+      <Form.Item label="歌手" rules ={[{ required: true, message: '请填写歌手!' }]}>
+        <Input value={music.name} placeholder="请填写歌手" onChange={e => inputChange('name', e)} />
       </Form.Item>
-      <Form.Item label="歌词">
-        {
-          form.getFieldDecorator('lyrics', {
-            initialValue: props.music.lyrics || '',
-            rules: [{ required: true, message: '请填写歌词!' }]
-          })(<TextArea rows={4} placeholder="请填写歌词" />)
-        }
+      <Form.Item label="歌词" rules={[{ required: true, message: '请填写歌词!' }]}>
+        <TextArea value={music.lyrics} rows={10} placeholder="请填写歌词" onChange={e => inputChange('lyrics', e)} />
       </Form.Item>
-      <Form.Item label="海报链接">
-        {
-          form.getFieldDecorator('poster', {
-            initialValue: props.music.poster || '',
-            rules: [{ required: true, message: '请填写海报链接!' }]
-          })(<Input placeholder="请填写海报链接" />)
-        }
-        <Upload {...posterUploadConfig}>
-          <Button type="link"><Icon type="upload" /> 点击上传海报</Button>
-        </Upload>
+      <Form.Item label="海报链接"  rules={[{ required: true, message: '请填写海报链接!' }]}>
+          <Input value={music.poster} placeholder="请填写海报链接" onChange={e => inputChange('poster', e)} />
+          <Upload {...posterUploadConfig}>
+            <Button type="link" icon={<UploadOutlined />}>点击上传海报</Button>
+          </Upload>
       </Form.Item>
-      <Form.Item label="歌曲链接">
-        {
-          form.getFieldDecorator('url', {
-            initialValue: props.music.url || '',
-            rules: [{ required: true, message: '请填写歌曲链接!' }]
-          })(<Input placeholder="请填写歌曲链接" />)
-        }
+      <Form.Item label="歌曲链接" rules={[{ required: true, message: '请填写歌曲链接!' }]}>
+        <Input value={music.url} placeholder="请填写歌曲链接" onChange={e => inputChange('url', e)} />
         <Upload {...musicUploadConfig}>
-          <Button type="link"><Icon type="upload" /> 点击上传歌曲</Button>
+          <Button type="link" icon={<UploadOutlined />}>点击上传歌曲</Button>
         </Upload>
       </Form.Item>
       <div  className="btnbox">
@@ -119,4 +101,4 @@ function AddMusic (props: any) {
   )
 }
 
-export default Form.create({ name: 'addProject' })(AddMusic)
+export default AddMusic

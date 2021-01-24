@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Menu, Icon } from 'antd'
+import { Menu } from 'antd'
 import { menuConfig, menuType } from './menu-config'
 import { RouteProps, RouterProps } from 'react-router'
-// import { ClickParam } from 'antd/es/menu/index.d'
 const { SubMenu } = Menu
 interface menuProps{
   collapsed: boolean
 }
 
 export default function Munu(props: (menuProps & RouteProps & RouterProps)) {
-  const { collapsed } = props
   const [openKey, setOpenKey] = useState([''])
   const click = (path?: string) => {
     if (path) {
@@ -27,26 +25,24 @@ export default function Munu(props: (menuProps & RouteProps & RouterProps)) {
   }, [props.location])
   return (
     <Menu
+      mode="inline"
       theme='dark'
       openKeys={openKey}
-      mode="inline"
       className="menu"
-      inlineCollapsed={collapsed}
     >
       {
         menuConfig.map((menu: menuType) => {
           if (!menu.children) {
-            return <Menu.Item key={menu.key} onClick={() => click(menu.path)}>
-              <Icon type={menu.icon} />
+            return <Menu.Item key={menu.key} icon={<menu.icon />} onClick={() => click(menu.path)}>
               <span>{menu.title}</span>
             </Menu.Item>
           } else {
             return (
               <SubMenu
                 key={menu.key}
+                icon={<menu.icon />}
                 title={
                   <span>
-                    <Icon type={menu.icon} />
                     <span>{menu.title}</span>
                   </span>
                 }

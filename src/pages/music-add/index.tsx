@@ -11,9 +11,9 @@ const MusicAdd = (props: any) => {
   // 获取编辑数据
   useEffect(() => {
     (async () => {
-      const _id = query.get('id')
-      if (_id) {
-        const { data } = await fetchMusic({_id})
+      const id = query.get('id')
+      if (id) {
+        const { data } = await fetchMusic({id})
         if (data.code) {
           setMusic(data.result[0])
         }

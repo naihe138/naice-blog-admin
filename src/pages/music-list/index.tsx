@@ -44,7 +44,7 @@ const Projects = (props:any) => {
   return <PageLayout title='音乐管理'>
     <Table components={components}
       className="music-list"
-      columns={tableColumns}
+      columns={tableColumns as any}
       dataSource={tableData}
       bordered
       size='middle'

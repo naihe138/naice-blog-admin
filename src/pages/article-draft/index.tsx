@@ -48,7 +48,7 @@ const ArticleList = (props:RouteComponentProps) => {
   return <PageLayout title='草稿箱'>
     <Table
       components={components}
-      columns={tableColumns}
+      columns={tableColumns as any}
       loading={loading}
       dataSource={list}
       bordered

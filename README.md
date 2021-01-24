@@ -1,109 +1,70 @@
-## 简述
-这是博客内容管理系统，利用react + typescript + react-router + hooks + ant design编写而成。具体模块有
+# Getting Started with Create React App
 
-1. 登录、退出
-2. 文章管理
-   - 文章修改，删除
-   - 添加文章
-   - 草稿箱
-3. 标签管理
-   - 新增、修改、删除标签
-4. 留言墙管理
-   - 新增、修改、删除留言
-5. 文章评论管理
-   - 新增、修改、删除留言
-6. 项目管理
-   - 新增、修改、删除留言
-7. 音乐管理
-   - 新增、修改、删除音乐
-   - 上传音乐文件、海报到七牛云
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 相关链接
+## Available Scripts
 
-博客地址：[naice-blog](https://github.com/naihe138/naice-blog)
+In the project directory, you can run:
 
-博客管理：[naice-blog-admin](https://github.com/naihe138/naice-blog-admin)
+### `yarn start`
 
-博客后台：[node-koa](https://github.com/naihe138/naice-blog-koa)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### 后台相关截图：
+### `yarn test`
 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-![登录](https://user-gold-cdn.xitu.io/2018/4/1/1627fa3f064f0ee8?w=1440&h=877&f=png&s=329202)
+### `yarn build`
 
-![文章列表](./view-images/a1.jpg)
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-![添加文章](./view-images/a2.jpg)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-![编辑文章](./view-images/a3.jpg)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-![文章草稿](./view-images/a4.jpg)
+### `yarn eject`
 
-![标签列表](./view-images/a5.jpg)
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-![评论管理](./view-images/a7.jpg)
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-![留言管理](./view-images/a8.jpg)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-![项目管理](./view-images/a9.jpg)
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-![编辑项目](./view-images/a10.jpg)
+## Learn More
 
-![音乐列表](./view-images/a11.jpg)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-![编辑音乐](./view-images/a12.jpg)
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
-### 相关技术栈：
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-+ react + redux + react-router + ant design
-+ token控制
+### Analyzing the Bundle Size
 
-### server
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-+ node + koa + mongoose
-+ 鉴别参数是否正确
-+ 登录权限jwt
-+ 百度sro推送，邮件通知
-+ pm2自动化部署
-+ nginx + ssl + http2
-+ 缓存
-+ ....
+### Making a Progressive Web App
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### 未来可能加入
+### Advanced Configuration
 
-+ ~~网易云音乐~~
-+ 移动适配
-+ 页面数据可视化统计
-+ react-native
-+ ....
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
+### Deployment
 
-### Clone
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-````
-git clone git@github.com:naihe138/naice-blog-admin.git
-````
+### `yarn build` fails to minify
 
-### Install
-
-````
-yarn --ignore-engines
-````
-
-### Dev
-
-````
-npm start
-````
-
-### Build
-
-````
-npm run build
-````
-
-
-如在浏览中遇到任何的bug，请留言我，我会第一时间修复，就此先谢谢
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

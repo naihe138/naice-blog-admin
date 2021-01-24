@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { message, Modal } from 'antd'
 import { API_ROOT } from './config'
 import isLogin from './login'
-
+const LOGIN_PATH = 'user/login'
 const confirm = Modal.confirm;
 export const http = axios.create({
   baseURL: API_ROOT
@@ -24,7 +24,18 @@ http.interceptors.request.use((config: AxiosRequestConfig) => {
 })
 
 http.interceptors.response.use((response: AxiosResponse<any>): AxiosResponse<any> | Promise<AxiosResponse<any>> => {
-  if (response.data.code === 0) {
+  console.log(response)
+  if (response.config.url !== LOGIN_PATH && !isLogin()) {
+    confirm({
+      title: '提示!',
+      content: '用户信息已过期，请点击确定后重新登录。',
+      okText: '确定',
+      cancelText: '取消',
+      onOk() {
+        window.location.href = '/login'
+      }
+    })
+  } else if (response.data.code === 0) {
     message.error(response.data.message)
   }
   return response
@@ -37,9 +48,6 @@ http.interceptors.response.use((response: AxiosResponse<any>): AxiosResponse<any
       cancelText: '取消',
       onOk() {
         window.location.href = '/login'
-      },
-      onCancel() {
-        console.log('Cancel')
       }
     })
   }

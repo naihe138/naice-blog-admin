@@ -25,7 +25,7 @@ function EditCell (props: any) {
 
 const Tag = () => {
   const [tableData, setTableData] = useState([]) 
-  const [editingKey, setEditingKey] = useState()
+  const [editingKey, setEditingKey] = useState(-1)
   const [refresh, setRefresh] = useState(1)
   useEffect(() => {
     (async () => {
@@ -46,7 +46,7 @@ const Tag = () => {
     setEditingKey(index)
   }
   function cancel () {
-    setEditingKey('')
+    setEditingKey(-1)
   }
   async function del (record:any) {
     if (editPrams.index === null) return
@@ -73,7 +73,7 @@ const Tag = () => {
   const components = { body: { cell: EditCell } }
   return <>
     <PageLayout title='标签列表'>
-      <Table components={components} columns={tableColumns} dataSource={tableData} bordered size='middle' rowKey='_id' />
+      <Table components={components} columns={tableColumns as any } dataSource={tableData} bordered size='middle' rowKey='_id' />
     </PageLayout>
   </>
 }

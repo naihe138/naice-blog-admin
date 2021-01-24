@@ -15,6 +15,9 @@ export const editeArt = (id: string, params = {}) => http.post(`article/edite/${
 // 删除文章
 export const delArt = (id: string) => http.delete(`article/delect/${id}`)
 
+// 文章md转化
+export const mdArt = (params = {}) => http.post(`article/transform`, { ...params })
+
 export const getArtId = (id: string, params = {}) => http.get(`article/get/${id}`, { params })
 
 // 获取所有的标签

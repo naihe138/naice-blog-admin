@@ -1,18 +1,14 @@
 import React from 'react'
 import { RouterProps } from 'react-router'
-import { Icon } from 'antd'
+import { Layout } from 'antd';
 import Menu from './menu'
+const { Sider } = Layout;
 export default function Side(props: RouterProps) {
   let [collapsed, setCollapsed] = React.useState(false)
   const onCollapse = () => setCollapsed(!collapsed)
   return (
-    <div className="side">
+    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
       <Menu collapsed={collapsed} {...props} />
-      <div className="colseMenu"
-        onClick={onCollapse}
-        style={{width: collapsed ? '80px' : '180px'}}>
-        <Icon type={collapsed ? 'left' : 'right'} />
-      </div>
-    </div>
+    </Sider>
   )
 }

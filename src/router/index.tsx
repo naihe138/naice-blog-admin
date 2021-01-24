@@ -18,10 +18,10 @@ const Projects = loadable(() => import('../pages/projects'))
 const Tags = loadable(() => import('../pages/tags'))
 const TagAdd = loadable(() => import('../pages/tag-add'))
 const Home = loadable(() => import('../pages/home'))
-export interface routeType {
-  path: string,
-  component: React.SFC
-}
+// export interface routeType {
+//   path: string,
+//   component: React.SFC
+// }
 
 export const routes = [
   {

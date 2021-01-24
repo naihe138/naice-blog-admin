@@ -43,7 +43,7 @@ const Projects = (props:any) => {
   const components = { body: { cell: EditCell } }
   return <PageLayout title='项目管理'>
     <Table components={components}
-      columns={tableColumns}
+      columns={tableColumns as any}
       dataSource={tableData}
       bordered
       size='middle'

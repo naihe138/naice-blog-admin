@@ -1,7 +1,16 @@
+import {
+  HomeOutlined,
+  EditOutlined,
+  TagsOutlined,
+  MessageOutlined,
+  IssuesCloseOutlined,
+  ProjectOutlined,
+  PlayCircleOutlined
+} from '@ant-design/icons';
 export interface menuType {
   title: string,
   key: string,
-  icon?: string,
+  icon?: any,
   path?: string,
   children?: menuType[]
 }
@@ -10,13 +19,13 @@ export const menuConfig:menuType[] = [
   {
     title: 'HOME',
     key: 'home',
-    icon: 'home',
+    icon: HomeOutlined,
     path: '/'
   },
   {
     title: '文章管理',
     key: 'article',
-    icon: 'edit',
+    icon: EditOutlined,
     children: [
       {
         title: '文章列表',
@@ -43,7 +52,7 @@ export const menuConfig:menuType[] = [
   {
     title: '标签管理',
     key: 'tags',
-    icon: 'tags',
+    icon: TagsOutlined,
     children: [
       {
         title: '全部标签',
@@ -60,7 +69,7 @@ export const menuConfig:menuType[] = [
   {
     title: '留言墙管理',
     key: 'message',
-    icon: 'message',
+    icon: MessageOutlined,
     children: [
       {
         title: '全部留言',
@@ -77,7 +86,7 @@ export const menuConfig:menuType[] = [
   {
     title: '评论管理',
     key: 'discuss',
-    icon: 'code',
+    icon: IssuesCloseOutlined,
     children: [
       {
         title: '文章评论',
@@ -89,7 +98,7 @@ export const menuConfig:menuType[] = [
   {
     title: '项目管理',
     key: 'project',
-    icon: 'project',
+    icon: ProjectOutlined,
     children: [
       {
         title: '全部项目',
@@ -106,7 +115,7 @@ export const menuConfig:menuType[] = [
   {
     title: '音乐管理',
     key: 'music',
-    icon: 'play-circle',
+    icon: PlayCircleOutlined,
     children: [
       {
         title: '音乐列表',

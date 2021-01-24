@@ -10,12 +10,12 @@ export const columns:ColumnProps<any>[] = [
     title: '#',
     width: 50,
     key: 'tindex',
-    render: (text, record, dataIndex) => <span>{dataIndex}</span>
+    render: (text, record, dataIndex) => <span>{dataIndex + 1}</span>
   },
   {
     title: '标题',
     dataIndex: 'title',
-    width: 300,
+    width: 150,
     key: 'title',
     render: (text, record, dataIndex) => {
       return <a href={record.github} target="_blank">{text}</a>
@@ -41,6 +41,6 @@ export const columns:ColumnProps<any>[] = [
     title: '编辑',
     key: 'operation',
     dataIndex: 'operation',
-    width: 150
+    width: 120
   }
 ]
